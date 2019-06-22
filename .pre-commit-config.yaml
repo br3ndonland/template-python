@@ -15,6 +15,7 @@ repos:
       - id: check-added-large-files
       - id: debug-statements
       - id: flake8
+        args: [--max-line-length=88]
   - repo: git://github.com/prettier/prettier
     rev: 1.18.2
     hooks:
