@@ -12,6 +12,7 @@ Brendon Smith ([br3ndonland](https://github.com/br3ndonland/))
   - [ISSUE_TEMPLATE/](.github/ISSUE_TEMPLATE)
     - [bug_report.md](.github/ISSUE_TEMPLATE/bug_report.md) - template for filing a bug report issue on GitHub.
     - [feature_request.md](.github/ISSUE_TEMPLATE/feature_request.md) - template for filing a feature request issue on GitHub.
+  - [CODE_OF_CONDUCT.md](.github/CODE_OF_CONDUCT.md)- guidelines for behavior when contributing to open-source projects.
   - [CONTRIBUTING.md](.github/CONTRIBUTING.md) - detailed instructions for using this repository.
 - [.vscode/settings.json](.vscode/settings.json) - default settings for [VSCode](https://code.visualstudio.com/).
 - [examples/](examples) - code samples that can be used to try out the Python tooling in this repo.
