@@ -12,7 +12,7 @@ Addition assignment (+=)
 
 def fizzbuzz():
     """Print 1-100
-
+    ---
     - Multiples of 3: Fizz
     - Multiples of 5: Buzz
     - Multiples of 3 and 5: FizzBuzz

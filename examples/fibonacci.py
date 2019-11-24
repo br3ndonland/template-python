@@ -3,8 +3,10 @@
 
 
 def user_input():
-    """Accept an integer from user input.
-    Throw exception if user inputs non-integer.
+    """Accept user input for Fibonacci function
+    ---
+    - Accept an integer from user input.
+    - Throw exception if user inputs non-integer.
     """
     try:
         n = input("Please enter a number: ")

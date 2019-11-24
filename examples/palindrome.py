@@ -4,10 +4,11 @@ import re
 
 
 def user_input():
-    """Clean and validate user input for palindrome(string):
-    Convert user input string to lowercase.
-    Remove any characters other than word and digit.
-    Verify that length is at least 3 characters.
+    """Clean and validate user input for palindrome function
+    ---
+    - Convert user input string to lowercase.
+    - Remove any characters other than word and digit.
+    - Verify that length is at least 3 characters.
     """
     try:
         user = input("Please provide an input to test: ").lower()
@@ -19,10 +20,11 @@ def user_input():
 
 
 def palindrome(string):
-    """Identify palindromes:
-    Accept a string from user input, after validation.
-    Create a new object with the reversed string.
-    Compare forward and reversed strings.
+    """Identify palindromes
+    ---
+    - Accept a string from user input, after validation.
+    - Create a new object with the reversed string.
+    - Compare forward and reversed strings.
     """
     backwards = string[::-1]
     if string == backwards:
