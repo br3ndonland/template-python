@@ -14,8 +14,7 @@
 - [Markdown](#markdown)
 - [Python](#python)
   - [VSCode](#vscode)
-  - [Pipenv](#pipenv)
-  - [pre commit](#pre-commit)
+  - [Python virtual environment tools](#python-virtual-environment-tools)
   - [Python code style](#python-code-style)
 - [Docker](#docker)
   - [Docker background](#docker-background)
@@ -180,12 +179,28 @@ After saving files, changes need to be committed to the Git repository.
 
 ### Git pre commit hooks
 
-See [pre-commit](#pre-commit).
+- Git pre-commit hooks are managed with [pre-commit](https://pre-commit.com/).
+- Included hooks:
+  - [Black](https://black.readthedocs.io/en/stable/version_control_integration.html) (see [Python code style](#python-code-style))
+  - [Flake8 Python linting](https://flake8.pycqa.org/en/latest/user/using-hooks.html) (see [Python code style](#python-code-style))
+  - [mypy static type checking](https://github.com/pre-commit/mirrors-mypy)
+  - [Prettier](https://prettier.io/docs/en/precommit.html) (see [Markdown](#markdown))
+  - [Check for added large files](https://github.com/pre-commit/pre-commit-hooks): Useful to avoid committing large files from [Git LFS](https://git-lfs.github.com/) to the Git repo.
+- After cloning the repository, install the pre-commit hooks using either your system installation of pre-commit, or the pre-commit included with the Python virtual environment.
+
+  ```sh
+  ❯ cd path/to/repo
+  # System option
+  ❯ pre-commit install
+  # Pipenv option
+  ❯ pipenv install --dev
+  ❯ pipenv shell
+  template-python-hash ❯ pre-commit install
+  ```
 
 ## Markdown
 
 - Markdown was written with the [Markdown All in One VSCode extension](https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one), and autoformatted with [Prettier](https://prettier.io/) using the [Prettier VSCode extension](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode).
-- The [Prettier pre-commit hook](https://prettier.io/docs/en/precommit.html) was installed.
 
 ## Python
 
@@ -197,7 +212,9 @@ See [pre-commit](#pre-commit).
   - [Getting Started with Python in VS Code](https://code.visualstudio.com/docs/python/python-tutorial)
   - [Editing Python in Visual Studio Code](https://code.visualstudio.com/docs/python/editing)
 
-### Pipenv
+### Python virtual environment tools
+
+#### Pipenv
 
 - **[Pipenv](https://pipenv.readthedocs.io/en/latest/)** was used to manage the development virtual environment for this project.
 
@@ -220,24 +237,12 @@ See [pre-commit](#pre-commit).
   - _Command Palette -> Python: Select Interpreter_. Select virtual environment.
   - _Command Palette -> Python: Create Terminal_. Creates a terminal and automatically activates the virtual environment. If the virtual environment is set as the interpreter for the workspace, new terminal windows will automatically start in the virtual environment.
 
-### pre commit
-
-- Git pre-commit hooks are managed with [pre-commit](https://pre-commit.com/).
-- After cloning the repository, enter the Python virtual environment and install pre-commit:
-
-  ```sh
-  ❯ cd path/to/repo
-  ❯ pipenv install --dev
-  ❯ pipenv shell
-  template-python-hash ❯ pre-commit install
-  ```
-
 ### Python code style
 
 - Python 3 (modern Python) was used. Python 2 (legacy Python) is nearing its [end of life](https://pythonclock.org/).
 - Python code was linted with [Flake8](https://flake8.readthedocs.io/en/latest/) and autoformatted with [Black](https://black.readthedocs.io/en/stable/).
 - Black is still considered a pre-release. As described in [Pipenv](#pipenv), the `--dev` and `--pre` flags are needed to install Black within a Pipenv.
-- The [Black Git pre-commit hook](https://black.readthedocs.io/en/stable/version_control_integration.html) has been installed for this project.
+- Git pre-commit hooks have been installed for the [Black autoformatter](https://black.readthedocs.io/en/stable/version_control_integration.html) and [Flake8 linter](https://flake8.pycqa.org/en/latest/user/using-hooks.html).
 - Within Python modules, `import` statements are organized alphabetically, and followed by `from` statements, which are also in alphabetical order.
 - In general, a [Pythonic](https://docs.python-guide.org/writing/style/) code style following the [Zen of Python](https://www.python.org/dev/peps/pep-0020/) was used. [Foolish consistency](https://pep8.org) was avoided.
 
