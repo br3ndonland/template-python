@@ -6,9 +6,6 @@
   "editor.formatOnSave": true,
   "files.trimTrailingWhitespace": true,
   // ~~~~~~~~~~~~~~~~~~~~~~~~~~ Language-specific settings ~~~~~~~~~~~~~~~~~~~~~~~~~ //
-  "[dockerfile]": {
-    "editor.defaultFormatter": "ms-azuretools.vscode-docker"
-  },
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
