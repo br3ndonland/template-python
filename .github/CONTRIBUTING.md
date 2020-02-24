@@ -214,6 +214,8 @@ After saving files, changes need to be committed to the Git repository.
 
 ### Python virtual environment tools
 
+#### `venv`
+
 #### Pipenv
 
 - **[Pipenv](https://pipenv.readthedocs.io/en/latest/)** was used to manage the development virtual environment for this project.
@@ -236,6 +238,11 @@ After saving files, changes need to be committed to the Git repository.
 - VSCode can be configured to recognize the Pipenv virtual environment. See [Using Python environments in VS Code](https://code.visualstudio.com/docs/python/environments).
   - _Command Palette -> Python: Select Interpreter_. Select virtual environment.
   - _Command Palette -> Python: Create Terminal_. Creates a terminal and automatically activates the virtual environment. If the virtual environment is set as the interpreter for the workspace, new terminal windows will automatically start in the virtual environment.
+- **The future of Pipenv is unclear.** It went all of 2019 without a major release, and has many bugs. Jacob Kaplan-Moss (Django co-creator) has commented on how "the lead of Pipenv was someone with a history of not treating his collaborators well," and on the "bugs and rapid API changes" of Pipenv. Many developers are switching to [Poetry](https://python-poetry.org).
+  - [Jacob Kaplan-Moss | Blog 20191111: My Python development environment, 2020 edition](https://jacobian.org/2019/nov/11/python-environment-2020/)
+  - [Telnyx | 20200124 Nick Timkovich: RIP Pipenv](https://medium.com/telnyx-engineering/rip-pipenv-tried-too-hard-do-what-you-need-with-pip-tools-d500edc161d4)
+
+#### Poetry
 
 ### Python code style
 
