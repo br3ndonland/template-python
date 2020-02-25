@@ -1,5 +1,8 @@
 # Python template repository
 
+[![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
+![pre-commit](https://github.com/br3ndonland/template-python/workflows/pre-commit/badge.svg)
+
 Brendon Smith ([br3ndonland](https://github.com/br3ndonland/))
 
 ## Description
