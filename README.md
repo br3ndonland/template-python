@@ -15,7 +15,7 @@ Brendon Smith ([br3ndonland](https://github.com/br3ndonland/))
   - [CODE_OF_CONDUCT.md](.github/CODE_OF_CONDUCT.md)- guidelines for behavior when contributing to open-source projects.
   - [CONTRIBUTING.md](.github/CONTRIBUTING.md) - detailed instructions for using this repository.
 - [.vscode/settings.json](.vscode/settings.json) - default settings for [VSCode](https://code.visualstudio.com/).
-- [examples/](examples) - code samples that can be used to try out the Python tooling in this repo.
+- [examples/](examples) - code samples that can be used to try out the Python tooling in this repo. For more examples, see [my algorithms repo](https://github.com/br3ndonland/algorithms).
 - [.pre-commit-config.yaml](.pre-commit-config.yaml) - configuration file for [pre-commit](https://pre-commit.com/) specifying [Git pre-commit hooks](https://www.git-scm.com/docs/githooks).
 - [Dockerfile](Dockerfile) - example [Dockerfile](https://docs.docker.com/engine/reference/builder/) for running Pipenv in Docker.
 - [LICENSE](LICENSE) - [license](https://choosealicense.com/) file describing how the repository may be legally used.
