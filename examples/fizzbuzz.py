@@ -26,5 +26,26 @@ def fizzbuzz():
         print(out or i)
 
 
+def fizzbuzz_list():
+    """Create a list 1-100
+    ---
+    - Multiples of 3 and 5: FizzBuzz
+    - Multiples of 3: Fizz
+    - Multiples of 5: Buzz
+    - Else: integer
+    """
+    out = []
+    for i in range(1, 101):
+        if i % 3 == 0 and i % 5 == 0:
+            out.insert(i, "FizzBuzz")
+        elif i % 3 == 0:
+            out.insert(i, "Fizz")
+        elif i % 5 == 0:
+            out.insert(i, "Buzz")
+        else:
+            out.insert(i, i)
+    return out
+
+
 if __name__ == "__main__":
-    fizzbuzz()
+    print(fizzbuzz_list())

@@ -11,6 +11,7 @@ def user_input():
     try:
         n = input("Please enter a number: ")
         print(f"Fibonacci number {n} is: {f(int(n))}")
+        print(f"The full list is:\n{f_list(int(n))}")
     except Exception as e:
         print(f"An exception occurred:\n{e}\nPlease enter a number.")
 
@@ -21,6 +22,16 @@ def f(n):
     for i in range(0, n):
         a, b = b, a + b
     return a
+
+
+def f_list(n):
+    """Return a list of the first n Fibonacci numbers."""
+    out = []
+    a, b = 0, 1
+    for i in range(0, n):
+        a, b = b, a + b
+        out.append(a)
+    return out
 
 
 if __name__ == "__main__":
