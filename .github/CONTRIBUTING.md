@@ -198,6 +198,11 @@ After saving files, changes need to be committed to the Git repository.
   template-python-hash ❯ pre-commit install
   ```
 
+- [pre-commit.yml](.github/workflows/pre-commit.yml) is a [GitHub Actions](https://github.com/features/actions) workflow that runs pre-commit with each pull request or push to the master branch.
+  - [GitHub Help: actions](https://help.github.com/en/actions)
+  - [GitHub actions marketplace: pre-commit](https://github.com/marketplace/actions/pre-commit)
+  - [GitHub repo: pre-commit/action](https://github.com/pre-commit/action)
+
 ## Markdown
 
 - Markdown was written with the [Markdown All in One VSCode extension](https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one), and autoformatted with [Prettier](https://prettier.io/) using the [Prettier VSCode extension](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode).
