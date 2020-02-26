@@ -19,6 +19,7 @@ Brendon Smith ([br3ndonland](https://github.com/br3ndonland/))
     - [feature_request.md](.github/ISSUE_TEMPLATE/feature_request.md) - template for filing a feature request issue on GitHub.
   - [workflows/](.github/workflows)
     - [pre-commit.yml](.github/workflows/pre-commit.yml): [GitHub Actions](https://github.com/features/actions) workflow that runs pre-commit with each pull request or push to the master branch.
+    - [test.yml](.github/workflows/test.yml): [GitHub Actions](https://github.com/features/actions) workflow (currently disabled) that runs Python tests with [coverage](https://github.com/nedbat/coveragepy).
   - [CODE_OF_CONDUCT.md](.github/CODE_OF_CONDUCT.md)- guidelines for behavior when contributing to open-source projects.
   - [CONTRIBUTING.md](.github/CONTRIBUTING.md) - detailed instructions for using this repository.
 - [.vscode/settings.json](.vscode/settings.json) - default settings for [VSCode](https://code.visualstudio.com/).
