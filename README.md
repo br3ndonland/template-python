@@ -13,24 +13,24 @@ Brendon Smith ([br3ndonland](https://github.com/br3ndonland/))
 
 ## Repository contents
 
-- [.github/](.github) - configuration files for [GitHub](https://github.com/).
+- [.github/](.github): configuration files for [GitHub](https://github.com/).
   - [ISSUE_TEMPLATE/](.github/ISSUE_TEMPLATE)
-    - [bug_report.md](.github/ISSUE_TEMPLATE/bug_report.md) - template for filing a bug report issue on GitHub.
-    - [feature_request.md](.github/ISSUE_TEMPLATE/feature_request.md) - template for filing a feature request issue on GitHub.
+    - [bug_report.md](.github/ISSUE_TEMPLATE/bug_report.md): template for filing a bug report issue on GitHub.
+    - [feature_request.md](.github/ISSUE_TEMPLATE/feature_request.md): template for filing a feature request issue on GitHub.
   - [workflows/](.github/workflows)
     - [pre-commit.yml](.github/workflows/pre-commit.yml): [GitHub Actions](https://github.com/features/actions) workflow that runs pre-commit with each pull request or push to the master branch.
     - [test.yml](.github/workflows/test.yml): [GitHub Actions](https://github.com/features/actions) workflow (currently disabled) that runs Python tests with [coverage](https://github.com/nedbat/coveragepy).
-  - [CODE_OF_CONDUCT.md](.github/CODE_OF_CONDUCT.md)- guidelines for behavior when contributing to open-source projects.
-  - [CONTRIBUTING.md](.github/CONTRIBUTING.md) - detailed instructions for using this repository.
-- [.vscode/settings.json](.vscode/settings.json) - default settings for [VSCode](https://code.visualstudio.com/).
-- [examples/](examples) - code samples that can be used to try out the Python tooling in this repo. For more examples, see [my algorithms repo](https://github.com/br3ndonland/algorithms).
-- [.pre-commit-config.yaml](.pre-commit-config.yaml) - configuration file for [pre-commit](https://pre-commit.com/) specifying [Git pre-commit hooks](https://www.git-scm.com/docs/githooks).
-- [.prettierrc](.prettierrc) - configuration file for [Prettier](https://prettier.io/docs/en/configuration.html).
-- [.travis.yml](.travis.yml) - configuration file for [Travis CI](https://docs.travis-ci.com/).
-- [Dockerfile](Dockerfile) - example [Dockerfile](https://docs.docker.com/engine/reference/builder/) for running Pipenv in Docker.
-- [LICENSE](LICENSE) - [license](https://choosealicense.com/) file describing how the repository may be legally used.
-- [Pipfile](Pipfile) - [Pipenv](https://pipenv.readthedocs.io/) package list
-- [README.md](README.md) - this file, a concise description of the repository
+  - [CODE_OF_CONDUCT.md](.github/CODE_OF_CONDUCT.md): guidelines for behavior when contributing to open-source projects.
+  - [CONTRIBUTING.md](.github/CONTRIBUTING.md): detailed instructions for using this repository.
+- [.vscode/settings.json](.vscode/settings.json): default settings for [VSCode](https://code.visualstudio.com/).
+- [examples/](examples): code samples that can be used to try out the Python tooling in this repo. For more examples, see [my algorithms repo](https://github.com/br3ndonland/algorithms).
+- [.pre-commit-config.yaml](.pre-commit-config.yaml): configuration file for [pre-commit](https://pre-commit.com/) specifying [Git pre-commit hooks](https://www.git-scm.com/docs/githooks).
+- [.prettierrc](.prettierrc): configuration file for [Prettier](https://prettier.io/docs/en/configuration.html).
+- [.travis.yml](.travis.yml): configuration file for [Travis CI](https://docs.travis-ci.com/).
+- [Dockerfile](Dockerfile): example [Dockerfile](https://docs.docker.com/engine/reference/builder/) for running Pipenv in Docker.
+- [LICENSE](LICENSE): [license](https://choosealicense.com/) file describing how the repository may be legally used.
+- [Pipfile](Pipfile): [Pipenv](https://pipenv.readthedocs.io/) package list
+- [README.md](README.md): this file, a concise description of the repository
 
 ## Quickstart
 
