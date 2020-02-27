@@ -1,10 +1,9 @@
 name: Test
 
 on:
-  repository_dispatch:
-  # pull_request:
-  # push:
-  #   branches: [master]
+  pull_request:
+  push:
+    branches: [master]
 
 jobs:
   build:
@@ -12,7 +11,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        python-version: [3.6, 3.7, 3.8]
+        python-version: [3.7, 3.8]
         os: [ubuntu-latest, macOS-latest, windows-latest]
     steps:
       - uses: actions/checkout@v2.0.0
@@ -22,9 +21,21 @@ jobs:
           python-version: ${{ matrix.python-version }}
       - name: Install dependencies
         run: |
-          python -m pip install --upgrade pip
-          python -m pip install --upgrade coverage
-          python -m pip install -e ".[d]"
-      - name: Unit tests
+          python -m pip install --upgrade pip pipenv
+          pipenv install --dev --system --skip-lock
+      - name: Set up cache for pre-commit
+        uses: actions/cache@v1.1.2
+        with:
+          path: ~/.cache/pre-commit
+          key: pre-commit|${{ env.PY }}|${{ hashFiles('.pre-commit-config.yaml') }}
+      - name: Run pre-commit hooks
+        uses: pre-commit/action@v1.0.1
+      - name: Check formatting
         run: |
-          coverage run tests/test_*.py
+          python -m black .
+          python -m flake8 . --max-line-length=88
+      # - name: Run unit tests
+      #   run: |
+      #     python -m pip install --upgrade coverage pytest
+      #     pytest ./*/tests/test*.py
+      #     coverage run ./*/tests/test_*.py
