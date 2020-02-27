@@ -19,19 +19,16 @@ jobs:
         uses: actions/setup-python@v1.1.1
         with:
           python-version: ${{ matrix.python-version }}
+      - name: Set up Node.js
+        uses: actions/setup-node@v1.4.0
       - name: Install dependencies
         run: |
+          npm i -g prettier
           python -m pip install --upgrade pip pipenv
           pipenv install --dev --system --skip-lock
-      - name: Set up cache for pre-commit
-        uses: actions/cache@v1.1.2
-        with:
-          path: ~/.cache/pre-commit
-          key: pre-commit|${{ env.PY }}|${{ hashFiles('.pre-commit-config.yaml') }}
-      - name: Run pre-commit hooks
-        uses: pre-commit/action@v1.0.1
       - name: Check formatting
         run: |
+          prettier --check "**/*.*css" "**/*.html" "**/*.js*" "**/*.md" "**/*.vue" "**/*.y*ml"
           python -m black .
           python -m flake8 . --max-line-length=88
       # - name: Run unit tests
