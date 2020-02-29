@@ -41,8 +41,13 @@ This repo is simple enough that I haven't needed to add cookiecutter yet. The `t
 
 ```sh
 ❯ cd path/to/repo
+# Replace instances of template-python with new repo name
+# In the command below, use your repo name instead of 'repo-name'
+❯ git grep -l 'template-python' | xargs sed -i '' 's/template-python/repo-name/g'
+# Install virtual environment
 ❯ pipenv install --dev
 ❯ pipenv shell
+# Install pre-commit hooks
 template-python-hash ❯ pre-commit install
 ```
 
