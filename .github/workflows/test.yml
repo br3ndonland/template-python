@@ -1,4 +1,4 @@
-name: Test
+name: test
 
 on:
   pull_request:
@@ -6,7 +6,7 @@ on:
     branches: [master]
 
 jobs:
-  build:
+  test:
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
@@ -19,20 +19,9 @@ jobs:
         uses: actions/setup-python@v1.1.1
         with:
           python-version: ${{ matrix.python-version }}
-      - name: Set up Node.js
-        uses: actions/setup-node@v1.4.0
       - name: Install dependencies
         run: |
-          npm i -g prettier
           python -m pip install --upgrade pip pipenv
           pipenv install --dev --system --skip-lock
-      - name: Check formatting
-        run: |
-          prettier --check "**/*.*css" "**/*.html" "**/*.js*" "**/*.md" "**/*.vue" "**/*.y*ml"
-          python -m black .
-          python -m flake8 . --max-line-length=88
       # - name: Run unit tests
-      #   run: |
-      #     python -m pip install --upgrade coverage pytest
-      #     pytest ./*/tests/test*.py
-      #     coverage run ./*/tests/test_*.py
+      #   run: pytest tests
