@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "template-python"
+version = "0.1.0"
+description = "Template repository for Python projects"
+authors = ["Brendon Smith <br3ndonland@protonmail.com>"]
+license = "MIT"
+homepage = "https://github.com/br3ndonland/template-python"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.6"
+
+[tool.poetry.dev-dependencies]
+black = { version = "*", allow-prereleases = true }
+flake8 = "*"
+mypy = "*"
+pre-commit = "^2.1"
+pytest = "^4.6"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"

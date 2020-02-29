@@ -14,11 +14,9 @@
 - [Markdown](#markdown)
 - [Python](#python)
   - [VSCode](#vscode)
-  - [Python virtual environment tools](#python-virtual-environment-tools)
   - [Python code style](#python-code-style)
+  - [Python virtual environment tools](#python-virtual-environment-tools)
 - [Docker](#docker)
-  - [Docker background](#docker-background)
-  - [Pipenv and Docker](#pipenv-and-docker)
 
 ## Git
 
@@ -192,10 +190,10 @@ After saving files, changes need to be committed to the Git repository.
   ❯ cd path/to/repo
   # System option
   ❯ pre-commit install
-  # Pipenv option
-  ❯ pipenv install --dev
-  ❯ pipenv shell
-  template-python-hash ❯ pre-commit install
+  # Virtual environment option
+  ❯ poetry install
+  ❯ poetry shell
+  template-python-hash-py3.7 ❯ pre-commit install
   ```
 
 - [pre-commit.yml](.github/workflows/pre-commit.yml) is a [GitHub Actions](https://github.com/features/actions) workflow that runs pre-commit with each pull request or push to the master branch.
@@ -216,6 +214,15 @@ After saving files, changes need to be committed to the Git repository.
   - [Python in Visual Studio Code](https://code.visualstudio.com/docs/languages/python)
   - [Getting Started with Python in VS Code](https://code.visualstudio.com/docs/python/python-tutorial)
   - [Editing Python in Visual Studio Code](https://code.visualstudio.com/docs/python/editing)
+
+### Python code style
+
+- Python 3 (modern Python) was used. Python 2 (legacy Python) is nearing its [end of life](https://pythonclock.org/).
+- Python code was linted with [Flake8](https://flake8.readthedocs.io/en/latest/) and autoformatted with [Black](https://black.readthedocs.io/en/stable/).
+- Black is still considered a pre-release. As described in [Pipenv](#pipenv), the `--dev` and `--pre` flags are needed to install Black within a Pipenv.
+- Git pre-commit hooks have been installed for the [Black autoformatter](https://black.readthedocs.io/en/stable/version_control_integration.html) and [Flake8 linter](https://flake8.pycqa.org/en/latest/user/using-hooks.html).
+- Within Python modules, `import` statements are organized alphabetically, and followed by `from` statements, which are also in alphabetical order.
+- In general, a [Pythonic](https://docs.python-guide.org/writing/style/) code style following the [Zen of Python](https://www.python.org/dev/peps/pep-0020/) was used. [Foolish consistency](https://pep8.org) was avoided.
 
 ### Python virtual environment tools
 
@@ -248,44 +255,26 @@ Python 3 is bundled with the [`venv` module](https://docs.python.org/3/tutorial/
 
 #### Pipenv
 
-- **[Pipenv](https://pipenv.readthedocs.io/en/latest/)** was used to manage the development virtual environment for this project.
-
-  - Install Pipenv with a system package manager like [Homebrew](https://brew.sh/), or with the Python package manager `pip`.
-  - Use Pipenv to install the virtual environment from the _Pipfile_ with `pipenv install --dev`.
-
-    - The `--dev` flag was used to accommodate pre-release packages such as the Black autoformatter (see [code style](#python-code-style) below).
-    - When generating the initial _Pipfile_ containing the Black dev package, the `--pre` flag added a line to the _Pipfile_ to allow pre-release packages. (TOML format):
-
-      ```toml
-      [pipenv]
-      allow_prereleases = true
-      ```
-
-    - Further information can be found in the [Pipenv docs](https://pipenv.readthedocs.io/en/latest/basics/#specifying-versions-of-a-package).
-
-  - Activate the virtual environment with `pipenv shell`.
-
-- VSCode can be configured to recognize the Pipenv virtual environment. See [Using Python environments in VS Code](https://code.visualstudio.com/docs/python/environments).
-  - _Command Palette -> Python: Select Interpreter_. Select virtual environment.
-  - _Command Palette -> Python: Create Terminal_. Creates a terminal and automatically activates the virtual environment. If the virtual environment is set as the interpreter for the workspace, new terminal windows will automatically start in the virtual environment.
+- **[Pipenv](https://pipenv.readthedocs.io/en/latest/)** was previously used to manage the development virtual environment for this project.
 - **The future of Pipenv is unclear.** It went all of 2019 without a major release, and has many bugs. Jacob Kaplan-Moss (Django co-creator) has commented on how "the lead of Pipenv was someone with a history of not treating his collaborators well," and on the "bugs and rapid API changes" of Pipenv. Many developers are switching to [Poetry](https://python-poetry.org).
   - [Jacob Kaplan-Moss | Blog 20191111: My Python development environment, 2020 edition](https://jacobian.org/2019/nov/11/python-environment-2020/)
   - [Telnyx | 20200124 Nick Timkovich: RIP Pipenv](https://medium.com/telnyx-engineering/rip-pipenv-tried-too-hard-do-what-you-need-with-pip-tools-d500edc161d4)
 
 #### Poetry
 
-### Python code style
+- This project now uses [Poetry](https://python-poetry.org/) for dependency management.
 
-- Python 3 (modern Python) was used. Python 2 (legacy Python) is nearing its [end of life](https://pythonclock.org/).
-- Python code was linted with [Flake8](https://flake8.readthedocs.io/en/latest/) and autoformatted with [Black](https://black.readthedocs.io/en/stable/).
-- Black is still considered a pre-release. As described in [Pipenv](#pipenv), the `--dev` and `--pre` flags are needed to install Black within a Pipenv.
-- Git pre-commit hooks have been installed for the [Black autoformatter](https://black.readthedocs.io/en/stable/version_control_integration.html) and [Flake8 linter](https://flake8.pycqa.org/en/latest/user/using-hooks.html).
-- Within Python modules, `import` statements are organized alphabetically, and followed by `from` statements, which are also in alphabetical order.
-- In general, a [Pythonic](https://docs.python-guide.org/writing/style/) code style following the [Zen of Python](https://www.python.org/dev/peps/pep-0020/) was used. [Foolish consistency](https://pep8.org) was avoided.
+#### Where's the `setup.py`?
+
+The `setup.py` [setup configuration file](https://docs.python.org/3/distutils/configfile.html) helps Python understand your project structure. It's mostly used by [`setuptools` ](https://setuptools.readthedocs.io/en/latest/setuptools.html) to distribute Python packages on [PyPI](https://pypi.org/).
+
+For example, if your tests are in a sub-directory like _test/_, adding `setup.py` helps pytest locate Python modules to load when running tests.
+
+To use the `setup.py` file during local development, simply run `pip install -e .` as described in the [`pip install -e` docs](https://pip.pypa.io/en/stable/reference/pip_install/#editable-installs) and the [pytest docs on good integration practices](https://docs.pytest.org/en/latest/goodpractices.html).
+
+This project doesn't need a separate `setup.py` because it's managed automatically by Poetry. Attempting to use a separate `setup.py` file with Poetry may result in errors, as described in [GitHub issue 1279](https://github.com/python-poetry/poetry/issues/1279).
 
 ## Docker
-
-### Docker background
 
 - **[Docker](https://www.docker.com/)** is a technology for running lightweight virtual machines called **containers**.
   - An **image** is the executable set of files read by Docker.
@@ -295,7 +284,23 @@ Python 3 is bundled with the [`venv` module](https://docs.python.org/3/tutorial/
 - To install Docker tools locally:
   - Ubuntu Linux: follow the [instructions for Ubuntu Linux](https://docs.docker.com/install/linux/docker-ce/ubuntu/), making sure to follow the [postinstallation steps](https://docs.docker.com/install/linux/linux-postinstall/) to activate the Docker daemon.
   - macOS and Windows: install [Docker Desktop](https://www.docker.com/products/docker-desktop) (available via [Homebrew](https://brew.sh) with `brew cask install docker`).
-- To build this Docker image and run the container:
+- A sample Dockerfile might look like this:
+
+  ```dockerfile
+  # Pull an image: alpine images are tightly controlled and small in size
+  FROM python:3.7-alpine
+  LABEL app=template-python
+  WORKDIR /app
+  # Copy the directory to /app in the container
+  COPY . /app
+  # Install dependencies
+  python -m pip install --upgrade pip poetry
+  poetry install
+  # Run the application
+  CMD ["python", "app.py"]
+  ```
+
+- To build a Docker image and run the container after creating a Dockerfile:
 
   ```sh
   ~
@@ -342,28 +347,3 @@ Python 3 is bundled with the [`venv` module](https://docs.python.org/3/tutorial/
   ```
 
   </summary>
-
-### Pipenv and Docker
-
-- There are a few [adjustments](https://stackoverflow.com/a/49705601) needed to enable Pipenv and Docker to work together.
-- Pipenv must first be installed with `pip`.
-- Python dependencies are then installed from _Pipfile.lock_.
-
-  - Docker containers don't need virtual environments, so the `--system` flag is used to install packages into the container's global Python installation. Thus, it is not necessary to enter the virtual environment with `pipenv shell` before starting the application.
-  - The `--deploy` flag causes the build to fail if the _Pipfile.lock_ is out of date.
-  - The `--ignore-pipfile` flag tells Pipenv to use the _Pipfile.lock_ for installation instead of the _Pipfile_.
-
-  ```dockerfile
-  # Pull an image: alpine images are tightly controlled and small in size
-  FROM python:3.7-alpine
-  LABEL app=template-python
-  WORKDIR /app
-  # Copy the directory to /app in the container
-  COPY . /app
-  # Install Pipenv
-  RUN python -m pip install pipenv
-  # Install packages from Pipfile.lock, configured for Docker deployments
-  RUN pipenv install --system --deploy --ignore-pipfile
-  # Run the application
-  CMD ["python", "app.py"]
-  ```

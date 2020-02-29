@@ -14,7 +14,7 @@ Brendon Smith ([br3ndonland](https://github.com/br3ndonland/))
 
 Another common approach, especially for Python, is to use [cookiecutter](https://github.com/cookiecutter/cookiecutter). In a cookiecutter repo, the developer adds template variables throughout, like `{{cookiecutter.repo_name}}`. When a user runs `cookiecutter` using the template repository, the template variables are replaced with the information the user provides.
 
-This repo is simple enough that I haven't needed to add cookiecutter yet. The `template-python` repo name can be replaced with a one-line terminal command: `git grep -l 'template-python' | xargs sed -i '' 's/template-python/repo-name/g'` (replace `repo-name` with the name of the repository you generate). See the [quickstart](#quickstart) section for more.
+This repo is simple enough that I haven't needed to add cookiecutter yet. The `template-python` repo name can be replaced with a one-line terminal command: `git grep -l 'template-python' | xargs sed -i '' 's/template-python/repo-name/g'` (replace `repo-name` with the name of the repository you generate). There may also be a few edits to the _pyproject.toml_ needed. See the [quickstart](#quickstart) section for more.
 
 ## Repository contents
 
@@ -33,9 +33,9 @@ This repo is simple enough that I haven't needed to add cookiecutter yet. The `t
 - [.prettierrc](.prettierrc): configuration file for [Prettier](https://prettier.io/docs/en/configuration.html).
 - [.travis.yml](.travis.yml): configuration file for [Travis CI](https://docs.travis-ci.com/).
 - [LICENSE](LICENSE): [license](https://choosealicense.com/) file describing how the repository may be legally used.
-- [Pipfile](Pipfile): [Pipenv](https://pipenv.readthedocs.io/) package list
+- [poetry.lock](poetry.lock): lock file used by [Poetry](https://python-poetry.org/) to install specific versions of each dependency.
+- [pyproject.toml](pyproject.toml): configuration file for [Poetry](https://python-poetry.org/).
 - [README.md](README.md): this file, a concise description of the repository
-- [setup.py](setup.py): this file helps Python understand your project structure and locate files, even if you're not going to publish your project as a Python package on [PyPI](https://pypi.org/). For example, if your tests are in a sub-directory like _test/_, adding _setup.py_ helps pytest locate Python modules to load when running tests. To tell Python to read your _setup.py_ file, simply run `pip install -e .` as described in [quickstart](#quickstart). For more info, see the [`pip install -e` docs](https://pip.pypa.io/en/stable/reference/pip_install/#editable-installs) and the [pytest docs on good integration practices](https://docs.pytest.org/en/latest/goodpractices.html).
 
 ## Quickstart
 
@@ -44,13 +44,13 @@ This repo is simple enough that I haven't needed to add cookiecutter yet. The `t
 # Replace instances of template-python with new repo name
 # In the command below, use your repo name instead of 'repo-name'
 ❯ git grep -l 'template-python' | xargs sed -i '' 's/template-python/repo-name/g'
-# Install virtual environment
-❯ pipenv install --dev
-❯ pipenv shell
+# Install virtual environment with poetry: https://python-poetry.org/docs/
+❯ poetry install
+❯ poetry shell
 # Install pre-commit hooks
-template-python-hash ❯ pre-commit install
-# Create an editable install of the repo: see setup.py
-template-python-hash ❯ pip install -e .
+template-python-hash-py3.7 ❯ pre-commit install
+# Try running the tests
+template-python-hash-py3.7 ❯ pytest
 ```
 
 ## Further information

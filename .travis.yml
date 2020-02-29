@@ -3,6 +3,9 @@ cache:
   directories:
     - $HOME/.cache/pre-commit
 install:
-  - pip install pre-commit
+  - pip install poetry
+  - poetry install
 script:
   - pre-commit run --all-files
+  - pytest
+env: POETRY_VIRTUALENVS_CREATE=false
