@@ -27,6 +27,7 @@ This repo is simple enough that I haven't needed to add cookiecutter yet. The `t
     - [test.yml](.github/workflows/test.yml): [GitHub Actions](https://github.com/features/actions) workflow that runs Python tests.
   - [CODE_OF_CONDUCT.md](.github/CODE_OF_CONDUCT.md): guidelines for behavior when contributing to open-source projects.
   - [CONTRIBUTING.md](.github/CONTRIBUTING.md): detailed instructions for using this repository.
+  - [PULL_REQUEST_TEMPLATE.md](.github/PULL_REQUEST_TEMPLATE.md): template for submitting [GitHub pull requests](.github/CONTRIBUTING.md).
 - [.vscode/settings.json](.vscode/settings.json): default settings for [VSCode](https://code.visualstudio.com/).
 - [examples/](examples): code samples that can be used to try out the Python tooling in this repo. For more examples, see [my algorithms repo](https://github.com/br3ndonland/algorithms).
 - [.pre-commit-config.yaml](.pre-commit-config.yaml): configuration file for [pre-commit](https://pre-commit.com/) specifying [Git pre-commit hooks](https://www.git-scm.com/docs/githooks).
