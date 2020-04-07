@@ -291,11 +291,13 @@ This project doesn't need a separate `setup.py` because it's managed automatical
   FROM python:3.7-alpine
   LABEL app=template-python
   WORKDIR /app
-  # Copy the directory to /app in the container
-  COPY . /app
   # Install dependencies
-  python -m pip install --upgrade pip poetry
-  poetry install
+  COPY poetry.lock pyproject.toml ./
+  RUN python -m pip install --upgrade pip poetry
+  RUN poetry config virtualenvs.create false
+  RUN poetry install --no-interaction
+  # Copy application files to /app in the container
+  COPY examples .
   # Run the application
   CMD ["python", "app.py"]
   ```
