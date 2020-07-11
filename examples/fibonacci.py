@@ -19,7 +19,7 @@ def user_input():
 def f(n):
     """Return the nth Fibonacci number."""
     a, b = 0, 1
-    for i in range(0, n):
+    for _ in range(n):
         a, b = b, a + b
     return a
 
@@ -28,7 +28,7 @@ def f_list(n):
     """Return a list of the first n Fibonacci numbers."""
     out = []
     a, b = 0, 1
-    for i in range(0, n):
+    for _ in range(n):
         a, b = b, a + b
         out.append(a)
     return out
