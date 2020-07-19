@@ -1,3 +1,7 @@
+[tool.isort]
+profile = "black"
+src_paths = ["examples", "tests"]
+
 [tool.poetry]
 name = "template-python"
 version = "0.1.0"
@@ -17,6 +21,12 @@ flake8 = "*"
 mypy = "*"
 pre-commit = "^2.6"
 pytest = "^5.4"
+
+# Pytest v6 will use [pyproject.toml](https://docs.pytest.org/en/latest/customize.html)
+[tool.pytest.ini_options]
+addopts = "-q"
+minversion = "6.0"
+testpaths = ["tests"]
 
 [build-system]
 requires = ["poetry>=1.0.5"]
