@@ -1,5 +1,5 @@
-# Created by https://www.gitignore.io/api/macos,python,visualstudiocode
-# Edit at https://www.gitignore.io/?templates=macos,python,visualstudiocode
+# Created by https://www.toptal.com/developers/gitignore/api/macos,python,virtualenv,visualstudiocode
+# Edit at https://www.toptal.com/developers/gitignore?templates=macos,python,virtualenv,visualstudiocode
 
 ### macOS ###
 # General
@@ -32,7 +32,7 @@ Temporary Items
 ### Python ###
 # Byte-compiled / optimized / DLL files
 __pycache__/
-# *.py[cod] # returns error: "a[b]" must be followed by =
+*.py[cod]
 *$py.class
 
 # C extensions
@@ -79,6 +79,7 @@ htmlcov/
 nosetests.xml
 coverage.xml
 *.cover
+*.py,cover
 .hypothesis/
 .pytest_cache/
 
@@ -90,6 +91,7 @@ coverage.xml
 *.log
 local_settings.py
 db.sqlite3
+db.sqlite3-journal
 
 # Flask stuff:
 instance/
@@ -117,12 +119,16 @@ ipython_config.py
 # pipenv
 #   According to pypa/pipenv#598, it is recommended to include Pipfile.lock in version control.
 #   However, in case of collaboration, if having platform-specific dependencies or dependencies
-#   having no cross-platform support, pipenv may install dependencies that don’t work, or not
+#   having no cross-platform support, pipenv may install dependencies that don't work, or not
 #   install all needed dependencies.
-Pipfile.lock
+#Pipfile.lock
 
-# celery beat schedule file
+# PEP 582; used by e.g. github.com/David-OConnor/pyflow
+__pypackages__/
+
+# Celery stuff
 celerybeat-schedule
+celerybeat.pid
 
 # SageMath parsed files
 *.sage.py
@@ -154,15 +160,31 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
+# pytype static type analyzer
+.pytype/
+
+### VirtualEnv ###
+# Virtualenv
+# http://iamzed.com/2009/05/07/a-primer-on-virtualenv/
+[Bb]in
+[Ii]nclude
+[Ll]ib
+[Ll]ib64
+[Ll]ocal
+[Ss]cripts
+pyvenv.cfg
+pip-selfcheck.json
+
 ### VisualStudioCode ###
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+*.code-workspace
 
 ### VisualStudioCode Patch ###
 # Ignore all local history of files
 .history
 
-# End of https://www.gitignore.io/api/macos,python,visualstudiocode
+# End of https://www.toptal.com/developers/gitignore/api/macos,python,virtualenv,visualstudiocode
