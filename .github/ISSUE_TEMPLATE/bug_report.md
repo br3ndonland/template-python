@@ -28,8 +28,6 @@ If applicable, add screenshots to help explain your problem.
 
 ### Logs
 
-Provide [links to CI reports](https://travis-ci.org/).
-
 ```text
 Include plaintext logs
 ```
