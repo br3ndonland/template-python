@@ -3,7 +3,7 @@
 import re
 
 
-def user_input():
+def user_input() -> str:
     """Clean and validate user input for palindrome function
     ---
     - Convert user input string to lowercase.
@@ -12,26 +12,25 @@ def user_input():
     """
     try:
         user = input("Please provide an input to test: ").lower()
-        string = re.sub(r"[^\w\d]", "", user)
-        if len(string) > 2:
-            palindrome(string)
+        s = re.sub(r"[^\w\d]", "", user)
+        if len(s) > 2 and palindrome(s):
+            return f"Success! The input {s} is a palindrome."
+        else:
+            return f"The input {s} is not a palindrome."
     except Exception as e:
-        print(f"An exception occurred:\n{e}\nPlease try again.")
+        return f"An exception occurred:\n{e}\nPlease try again."
 
 
-def palindrome(string):
+def palindrome(s: str) -> bool:
     """Identify palindromes
     ---
     - Accept a string from user input, after validation.
     - Create a new object with the reversed string.
     - Compare forward and reversed strings.
     """
-    backwards = string[::-1]
-    if string == backwards:
-        print(f"Success! The input {string} is a palindrome.")
-    else:
-        print(f"The input {string} is not a palindrome.")
+    backwards = s[::-1]
+    return s == backwards
 
 
 if __name__ == "__main__":
-    user_input()
+    print(user_input())
