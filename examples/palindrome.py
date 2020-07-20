@@ -4,6 +4,17 @@ import re
 
 
 def user_input() -> str:
+    """Accept user input for palindrome function
+    """
+    try:
+        s = input("Please provide an input to test: ")
+        prep_input(s)
+        return s
+    except Exception:
+        raise
+
+
+def prep_input(s: str) -> bool:
     """Clean and validate user input for palindrome function
     ---
     - Convert user input string to lowercase.
@@ -11,14 +22,16 @@ def user_input() -> str:
     - Verify that length is at least 3 characters.
     """
     try:
-        user = input("Please provide an input to test: ").lower()
-        s = re.sub(r"[^\w\d]", "", user)
+        s = re.sub(r"[^\w\d]", "", s.lower())
         if len(s) > 2 and palindrome(s):
-            return f"Success! The input {s} is a palindrome."
+            print(f"Success! The input {s} is a palindrome.")
+            return True
         else:
-            return f"The input {s} is not a palindrome."
+            print(f"The input {s} is not a palindrome.")
+            return False
     except Exception as e:
-        return f"An exception occurred:\n{e}\nPlease try again."
+        print(f"An exception occurred:\n{e}\nPlease try again.")
+        raise
 
 
 def palindrome(s: str) -> bool:

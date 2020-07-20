@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """Fibonacci numbers"""
+from typing import List
 
 
-def user_input():
+def user_input() -> str:
     """Accept user input for Fibonacci function
     ---
     - Accept an integer from user input.
@@ -10,13 +11,14 @@ def user_input():
     """
     try:
         n = input("Please enter a number: ")
-        print(f"Fibonacci number {n} is: {f(int(n))}")
-        print(f"The full list is:\n{f_list(int(n))}")
+        return (
+            f"Fibonacci number {n} is: {f(int(n))}. The full list is:\n{f_list(int(n))}"
+        )
     except Exception as e:
-        print(f"An exception occurred:\n{e}\nPlease enter a number.")
+        raise e
 
 
-def f(n):
+def f(n: int) -> int:
     """Return the nth Fibonacci number."""
     a, b = 0, 1
     for _ in range(n):
@@ -24,7 +26,7 @@ def f(n):
     return a
 
 
-def f_list(n):
+def f_list(n: int) -> List[int]:
     """Return a list of the first n Fibonacci numbers."""
     out = []
     a, b = 0, 1

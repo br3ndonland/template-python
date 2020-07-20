@@ -8,9 +8,10 @@ Modulo (%, remainder)
 Strict equality (==)
 Addition assignment (+=)
 """
+from typing import List, Union
 
 
-def fizzbuzz():
+def fizzbuzz() -> Union[int, str]:
     """Print 1-100
     ---
     - Multiples of 3: Fizz
@@ -23,10 +24,10 @@ def fizzbuzz():
             out += "Fizz"
         if i % 5 == 0:
             out += "Buzz"
-        print(out or i)
+    return out or i
 
 
-def fizzbuzz_list():
+def fizzbuzz_list() -> List:
     """Create a list 1-100
     ---
     - Multiples of 3 and 5: FizzBuzz
@@ -34,7 +35,7 @@ def fizzbuzz_list():
     - Multiples of 5: Buzz
     - Else: integer
     """
-    out = []
+    out: List[Union[int, str]] = []
     for i in range(1, 101):
         if i % 3 == 0 and i % 5 == 0:
             out.insert(i, "FizzBuzz")
