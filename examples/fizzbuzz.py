@@ -11,7 +11,7 @@ Addition assignment (+=)
 from typing import List, Union
 
 
-def fizzbuzz() -> Union[int, str]:
+def fizzbuzz_print() -> None:
     """Print 1-100
     ---
     - Multiples of 3: Fizz
@@ -24,10 +24,10 @@ def fizzbuzz() -> Union[int, str]:
             out += "Fizz"
         if i % 5 == 0:
             out += "Buzz"
-    return out or i
+        print(out or i)
 
 
-def fizzbuzz_list() -> List:
+def fizzbuzz_list() -> List[Union[int, str]]:
     """Create a list 1-100
     ---
     - Multiples of 3 and 5: FizzBuzz
@@ -36,7 +36,7 @@ def fizzbuzz_list() -> List:
     - Else: integer
     """
     out: List[Union[int, str]] = []
-    for i in range(1, 101):
+    for i in range(100):
         if i % 3 == 0 and i % 5 == 0:
             out.insert(i, "FizzBuzz")
         elif i % 3 == 0:
