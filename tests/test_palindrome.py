@@ -3,23 +3,20 @@ import pytest
 from examples import palindrome
 
 
-def test_palindrome_01() -> None:
-    assert palindrome.prep_input("racecar") is True
+@pytest.mark.parametrize(
+    "input_string,output_boolean",
+    [
+        ("racecar", True),
+        ("A man, A Plan, A Canal, Panama", True),
+        ("Foo bar", False),
+        ("[]", False),
+    ],
+)
+def test_palindrome(input_string: str, output_boolean: bool) -> None:
+    assert palindrome.prep_input(input_string) is output_boolean
 
 
-def test_palindrome_02() -> None:
-    assert palindrome.prep_input("A man, A Plan, A Canal, Panama") is True
-
-
-def test_palindrome_03() -> None:
-    assert palindrome.prep_input("Foo bar") is False
-
-
-def test_palindrome_04() -> None:
-    assert palindrome.prep_input("[]") is False
-
-
-def test_palindrome_05() -> None:
+def test_palindrome_incorrect_input_type() -> None:
     with pytest.raises(AttributeError):
         assert palindrome.prep_input([]) is False  # type: ignore
         raise
