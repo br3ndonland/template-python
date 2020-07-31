@@ -264,7 +264,7 @@ checkqa-mypy = ["mypy (v0.761)"]
 testing = ["argcomplete", "hypothesis (>=3.56)", "mock", "nose", "requests", "xmlschema"]
 
 [[package]]
-category = "main"
+category = "dev"
 description = "YAML parser and emitter for Python"
 name = "pyyaml"
 optional = false
@@ -338,7 +338,7 @@ python-versions = "*"
 version = "0.2.5"
 
 [metadata]
-content-hash = "f343f040305c73c1052a2d207f1ffe885c14c9484a70051c7637aba64a8071c5"
+content-hash = "597ff92d65bab7bd6598ae1e17aa937a1953e149cd51457c3aa67bcb88516eff"
 python-versions = "^3.8"
 
 [metadata.files]
