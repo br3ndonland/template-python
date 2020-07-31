@@ -5,7 +5,9 @@ on:
   push:
     branches: [master, develop]
     paths:
+      - "**.lock"
       - "**.py"
+      - "**.toml"
 
 jobs:
   test:
@@ -22,4 +24,4 @@ jobs:
         env:
           POETRY_VIRTUALENVS_CREATE: false
       - name: Run unit tests
-        run: pytest tests
+        run: pytest
