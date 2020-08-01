@@ -37,4 +37,4 @@ def f_list(n: int) -> List[int]:
 
 
 if __name__ == "__main__":
-    user_input()
+    print(user_input())
