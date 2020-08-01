@@ -15,41 +15,21 @@ Another common approach, especially for Python, is to use [cookiecutter](https:/
 
 This repo is simple enough that I haven't needed to add cookiecutter yet. The `template-python` repo name can be replaced with a one-line terminal command: `git grep -l 'template-python' | xargs sed -i '' 's/template-python/repo-name/g'` (replace `repo-name` with the name of the repository you generate). There may also be a few edits to the _pyproject.toml_ needed. See the [quickstart](#quickstart) section for more.
 
-## Repository contents
-
-- [.github/](.github): configuration files for [GitHub](https://github.com/).
-  - [ISSUE_TEMPLATE/](.github/ISSUE_TEMPLATE)
-    - [bug_report.md](.github/ISSUE_TEMPLATE/bug_report.md): template for filing a bug report issue on GitHub.
-    - [feature_request.md](.github/ISSUE_TEMPLATE/feature_request.md): template for filing a feature request issue on GitHub.
-  - [workflows/](.github/workflows)
-    - [pre-commit.yml](.github/workflows/pre-commit.yml): [GitHub Actions](https://github.com/features/actions) workflow that runs the pre-commit hooks specified in [.pre-commit-config.yaml](.pre-commit-config.yaml).
-    - [test.yml](.github/workflows/test.yml): [GitHub Actions](https://github.com/features/actions) workflow that runs Python tests.
-  - [CODE_OF_CONDUCT.md](.github/CODE_OF_CONDUCT.md): guidelines for behavior when contributing to open-source projects.
-  - [CONTRIBUTING.md](.github/CONTRIBUTING.md): detailed instructions for using this repository.
-  - [PULL_REQUEST_TEMPLATE.md](.github/PULL_REQUEST_TEMPLATE.md): template for submitting [GitHub pull requests](.github/CONTRIBUTING.md).
-- [.vscode/settings.json](.vscode/settings.json): default settings for [VSCode](https://code.visualstudio.com/).
-- [examples/](examples): code samples that can be used to try out the Python tooling in this repo. For more examples, see [my algorithms repo](https://github.com/br3ndonland/algorithms).
-- [.pre-commit-config.yaml](.pre-commit-config.yaml): configuration file for [pre-commit](https://pre-commit.com/) specifying [Git pre-commit hooks](https://www.git-scm.com/docs/githooks).
-- [.prettierrc](.prettierrc): configuration file for [Prettier](https://prettier.io/docs/en/configuration.html).
-- [LICENSE](LICENSE): [license](https://choosealicense.com/) file describing how the repository may be legally used.
-- [poetry.lock](poetry.lock): lock file used by [Poetry](https://python-poetry.org/) to install specific versions of each dependency.
-- [pyproject.toml](pyproject.toml): configuration file for [Poetry](https://python-poetry.org/).
-- [README.md](README.md): this file, a concise description of the repository
-
 ## Quickstart
 
 ```sh
 ❯ cd path/to/repo
 # Replace instances of template-python with new repo name
 # In the command below, use your repo name instead of 'repo-name'
-❯ git grep -l 'template-python' | xargs sed -i '' 's/template-python/repo-name/g'
+❯ git grep -l 'template-python' | xargs sed -i '' 's|template-python|repo-name|g'
+❯ git grep -l 'templatepython' | xargs sed -i '' 's|templatepython|repo-name|g'
 # Install virtual environment with poetry: https://python-poetry.org/docs/
 ❯ poetry install
 ❯ poetry shell
 # Install pre-commit hooks
-template-python-hash-py3.7 ❯ pre-commit install
+.venv ❯ pre-commit install
 # Try running the tests
-template-python-hash-py3.7 ❯ pytest
+.venv ❯ pytest
 ```
 
 ## Further information
