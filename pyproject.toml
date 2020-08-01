@@ -1,9 +1,9 @@
 [tool.isort]
 profile = "black"
-src_paths = ["examples", "tests"]
+src_paths = ["templatepython", "tests"]
 
 [tool.poetry]
-name = "template-python"
+name = "templatepython"
 version = "0.1.0"
 description = "Template repository for Python projects"
 authors = ["Brendon Smith <br3ndonland@protonmail.com>"]
