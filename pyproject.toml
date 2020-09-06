@@ -24,7 +24,6 @@ pytest = "^6.0"
 pytest-mock = "^3"
 
 [tool.pytest.ini_options]
-# Pytest v6 will use [pyproject.toml](https://docs.pytest.org/en/latest/customize.html)
 addopts = "-q"
 minversion = "6.0"
 testpaths = ["tests"]
