@@ -4,8 +4,7 @@ import re
 
 
 def user_input() -> str:
-    """Accept user input for palindrome function
-    """
+    """Accept user input for palindrome function"""
     try:
         s = input("Please provide an input to test: ")
         prep_input(s)
