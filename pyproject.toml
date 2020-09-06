@@ -19,7 +19,7 @@ black = { version = "*", allow-prereleases = true }
 flake8 = "*"
 isort = "^5.2.2"
 mypy = "*"
-pre-commit = "^2.6"
+pre-commit = "^2.7"
 pytest = "^6.0"
 pytest-mock = "^3"
 
