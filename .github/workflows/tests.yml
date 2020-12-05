@@ -3,7 +3,7 @@ name: tests
 on:
   pull_request:
   push:
-    branches: [master, develop]
+    branches: [develop, master]
     paths:
       - "**.lock"
       - "**.py"
@@ -13,11 +13,16 @@ on:
 jobs:
   pytest:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [3.8, 3.9]
+    env:
+      POETRY_VIRTUALENVS_CREATE: false
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
         with:
-          python-version: 3.8
+          python-version: ${{ matrix.python-version }}
       - name: Set up Poetry cache for Python dependencies
         uses: actions/cache@v2
         if: startsWith(runner.os, 'Linux')
@@ -32,7 +37,5 @@ jobs:
           echo "$HOME/.poetry/bin" >> $GITHUB_PATH
       - name: Install dependencies
         run: poetry install --no-interaction
-        env:
-          POETRY_VIRTUALENVS_CREATE: false
       - name: Run unit tests
         run: pytest
