@@ -20,7 +20,7 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
       - name: Set up pre-commit cache
-        uses: actions/cache@v2
+        uses: actions/cache@v2.1.4
         if: startsWith(runner.os, 'Linux')
         with:
           path: ~/.cache/pre-commit
