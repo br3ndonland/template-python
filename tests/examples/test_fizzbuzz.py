@@ -1,8 +1,8 @@
 from typing import Union
 
-import pytest  # type: ignore
+import pytest
 
-from templatepython.examples import fizzbuzz  # type: ignore
+from templatepython.examples import fizzbuzz
 
 
 @pytest.mark.parametrize(

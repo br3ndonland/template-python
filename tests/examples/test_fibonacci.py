@@ -1,6 +1,6 @@
-import pytest  # type: ignore
+import pytest
 
-from templatepython.examples import fibonacci  # type: ignore
+from templatepython.examples import fibonacci
 
 
 @pytest.mark.parametrize(
