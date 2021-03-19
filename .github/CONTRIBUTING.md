@@ -3,12 +3,11 @@
 ## Table of Contents <!-- omit in toc -->
 
 - [Git](#git)
-- [GitHub](#github)
   - [Contributors](#contributors)
   - [Maintainers](#maintainers)
 - [Python](#python)
-  - [Poetry](#poetry)
   - [Code style](#code-style)
+  - [Poetry](#poetry)
 - [Docker](#docker)
 
 ## Git
@@ -21,10 +20,6 @@
 - Commit your changes with a [properly-formatted Git commit message](https://chris.beams.io/posts/git-commit/).
 - Create a [pull request (PR)](https://docs.github.com/en/free-pro-team@latest/github/collaborating-with-issues-and-pull-requests/about-pull-requests) to incorporate your changes into the upstream project you forked.
 
-## GitHub
-
-Here are some suggested GitHub practices:
-
 ### Contributors
 
 - **Submit PRs from feature branches on forks.**
@@ -35,21 +30,58 @@ Here are some suggested GitHub practices:
 
 - **Make `develop` the default branch.**
 - **Merge PRs into `develop`.** Configure repository settings so that branches are deleted automatically after PRs are merged.
-- **Only merge to `master` if [fast-forwarding](https://www.git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging) from `develop`.**
-- **Enable [branch protection](https://docs.github.com/en/free-pro-team@latest/github/administering-a-repository/about-protected-branches) on `develop` and `master`.**
+- **Only merge to `main` if [fast-forwarding](https://www.git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging) from `develop`.**
+- **Enable [branch protection](https://docs.github.com/en/free-pro-team@latest/github/administering-a-repository/about-protected-branches) on `develop` and `main`.**
 - **Set up a release workflow.** Here's an example release workflow, controlled by Git tags:
-  - Bump the version number in `pyproject.toml` with `poetry version`, and manually in `test_version.py`, and commit the changes to `develop`.
+  - Bump the version number in `pyproject.toml` with `poetry version` and commit the changes to `develop`.
   - Push to `develop` and verify all CI checks pass.
-  - Fast-forward merge to `master`, push, and verify all CI checks pass.
-  - Create an annotated and signed Git tag
+  - Fast-forward merge to `main`, push, and verify all CI checks pass.
+  - Create an [annotated and signed Git tag](https://www.git-scm.com/book/en/v2/Git-Basics-Tagging)
     - Follow [SemVer](https://semver.org/) guidelines when choosing a version number.
-    - List PRs and commits in the tag message
+    - List PRs and commits in the tag message:
+      ```sh
+      git log --pretty=format:"- %s (%h)" "$(git describe --abbrev=0 --tags)"..HEAD
+      ```
     - Omit the leading `v` (use `1.0.0` instead of `v1.0.0`)
     - Example: `git tag -a -s 1.0.0`
   - Push the tag.
   - Set up GitHub Actions to build and push the Python package like [this](https://github.com/br3ndonland/inboard/blob/develop/.github/workflows/builds.yml).
 
 ## Python
+
+### Code style
+
+- Python code is formatted with [Black](https://black.readthedocs.io/en/stable/). Configuration for Black is stored in _pyproject.toml_.
+- Python imports are organized automatically with [isort](https://pycqa.github.io/isort/).
+  - The isort package organizes imports in three sections:
+    1. Standard library
+    2. Dependencies
+    3. Project
+  - Within each of those groups, `import` statements occur first, then `from` statements, in alphabetical order.
+  - You can run isort from the command line with `poetry run isort .`.
+  - Configuration for isort is stored in _pyproject.toml_.
+- Other web code (JSON, Markdown, YAML) is formatted with [Prettier](https://prettier.io/).
+- Code style is enforced with [pre-commit](https://pre-commit.com/), which runs [Git hooks](https://www.git-scm.com/book/en/v2/Customizing-Git-Git-Hooks).
+
+  - Configuration is stored in _.pre-commit-config.yaml_.
+  - Pre-commit can run locally before each commit (hence "pre-commit"), or on different Git events like `pre-push`.
+  - Pre-commit is installed in the Poetry environment. To use:
+
+    ```sh
+    # after running `poetry install`
+    path/to/repo
+    ❯ poetry shell
+
+    # install hooks that run before each commit
+    path/to/repo
+    .venv ❯ pre-commit install
+
+    # and/or install hooks that run before each push
+    path/to/repo
+    .venv ❯ pre-commit install --hook-type pre-push
+    ```
+
+  - Pre-commit is also useful as a CI tool. The GitHub Actions workflows run pre-commit hooks with [GitHub Actions](https://github.com/features/actions).
 
 ### Poetry
 
@@ -69,10 +101,10 @@ The recommended installation method is through the [Poetry custom installer](htt
 
 ```sh
 # osx / linux / bashonwindows install instructions
-curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
+curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/HEAD/get-poetry.py | python -
 
 # windows powershell install instructions
-(Invoke-WebRequest -Uri https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py -UseBasicParsing).Content | python -
+(Invoke-WebRequest -Uri https://raw.githubusercontent.com/python-poetry/poetry/HEAD/get-poetry.py -UseBasicParsing).Content | python -
 ```
 
 You can also install Poetry however you prefer to install your user Python packages (`pipx install poetry`, `pip install --user poetry`, etc). Use the standard update methods with these tools (`pipx upgrade poetry`, `pip install --user --upgrade poetry`, etc).
@@ -110,47 +142,13 @@ poetry config virtualenvs.in-project true
 poetry export -f requirements.txt > requirements.txt --dev
 ```
 
-### Code style
-
-- Python code is formatted with [Black](https://black.readthedocs.io/en/stable/). Configuration for Black is stored in _[pyproject.toml](pyproject.toml)_.
-- Python imports are organized automatically with [isort](https://pycqa.github.io/isort/).
-  - The isort package organizes imports in three sections:
-    1. Standard library
-    2. Dependencies
-    3. Project
-  - Within each of those groups, `import` statements occur first, then `from` statements, in alphabetical order.
-  - You can run isort from the command line with `poetry run isort .`.
-  - Configuration for isort is stored in _[pyproject.toml](pyproject.toml)_.
-- Other web code (JSON, Markdown, YAML) is formatted with [Prettier](https://prettier.io/).
-- Code style is enforced with [pre-commit](https://pre-commit.com/), which runs [Git hooks](https://www.git-scm.com/book/en/v2/Customizing-Git-Git-Hooks).
-
-  - Configuration is stored in _[.pre-commit-config.yaml](../.pre-commit-config.yaml)_.
-  - Pre-commit can run locally before each commit (hence "pre-commit"), or on different Git events like `pre-push`.
-  - Pre-commit is installed in the Poetry environment. To use:
-
-    ```sh
-    # after running `poetry install`
-    path/to/repo
-    ❯ poetry shell
-
-    # install hooks that run before each commit
-    path/to/repo
-    .venv ❯ pre-commit install
-
-    # and/or install hooks that run before each push
-    path/to/repo
-    .venv ❯ pre-commit install --hook-type pre-push
-    ```
-
-  - Pre-commit is also useful as a CI tool. The [hooks](.github/workflows/hooks.yml) GitHub Actions workflow runs pre-commit hooks with [GitHub Actions](https://github.com/features/actions).
-
 ## Docker
 
 - **[Docker](https://www.docker.com/)** is a technology for running lightweight virtual machines called **containers**.
   - An **image** is the executable set of files read by Docker.
   - A **container** is a running image.
   - The **[Dockerfile](https://docs.docker.com/engine/reference/builder/)** tells Docker how to build the container.
-- To install Docker tools locally:
+- To [get started with Docker](https://www.docker.com/get-started):
   - Ubuntu Linux: follow the [instructions for Ubuntu Linux](https://docs.docker.com/install/linux/docker-ce/ubuntu/), making sure to follow the [postinstallation steps](https://docs.docker.com/install/linux/linux-postinstall/) to activate the Docker daemon.
   - macOS and Windows: install [Docker Desktop](https://www.docker.com/products/docker-desktop) (available via [Homebrew](https://brew.sh/) with `brew cask install docker`).
 - <details><summary>Expand this details element for more <a href="https://docs.docker.com/engine/reference/commandline/cli/">useful Docker commands</a>.</summary>
