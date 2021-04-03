@@ -1,13 +1,14 @@
 name: tests
 
 on:
-  pull_request:
-  push:
-    branches: [develop, main]
-    paths:
-      - "**.lock"
-      - "**.py"
-      - "**.toml"
+  # Uncomment the following lines to activate workflow triggers
+  # pull_request:
+  # push:
+  #   branches: [develop, main]
+  #   paths:
+  #     - "**.lock"
+  #     - "**.py"
+  #     - "**.toml"
   workflow_dispatch:
 
 jobs:
