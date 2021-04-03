@@ -2,26 +2,22 @@
 
 ## Table of Contents <!-- omit in toc -->
 
-- [Git](#git)
+- [Summary](#summary)
   - [Contributors](#contributors)
   - [Maintainers](#maintainers)
+- [Git](#git)
 - [Python](#python)
   - [Code style](#code-style)
   - [Poetry](#poetry)
 - [Docker](#docker)
 
-## Git
-
-- _[Why use Git?](https://www.git-scm.com/about)_ Git enables creation of multiple versions of a code repository called branches, with the ability to track and undo changes in detail.
-- Install Git by [downloading](https://www.git-scm.com/downloads) from the website, or with a package manager like [Homebrew](https://brew.sh/).
-- [Configure Git to connect to GitHub with SSH](https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/connecting-to-github-with-ssh)
-- [Fork](https://docs.github.com/en/free-pro-team@latest/github/getting-started-with-github/fork-a-repo) this repo
-- Create a [branch](https://www.git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell) in your fork.
-- Commit your changes with a [properly-formatted Git commit message](https://chris.beams.io/posts/git-commit/).
-- Create a [pull request (PR)](https://docs.github.com/en/free-pro-team@latest/github/collaborating-with-issues-and-pull-requests/about-pull-requests) to incorporate your changes into the upstream project you forked.
+## Summary
 
 ### Contributors
 
+**PRs welcome!**
+
+- **Consider starting a [discussion](https://docs.github.com/en/discussions) to see if there's interest in what you want to do.**
 - **Submit PRs from feature branches on forks.**
 - **Ensure PRs pass all CI checks.**
 - **Maintain or increase test coverage.**
@@ -44,8 +40,17 @@
       ```
     - Omit the leading `v` (use `1.0.0` instead of `v1.0.0`)
     - Example: `git tag -a -s 1.0.0`
-  - Push the tag.
-  - Set up GitHub Actions to build and push the Python package like [this](https://github.com/br3ndonland/inboard/blob/develop/.github/workflows/builds.yml).
+  - Push the tag. GitHub Actions will build and push the Python package and Docker images.
+
+## Git
+
+- _[Why use Git?](https://www.git-scm.com/about)_ Git enables creation of multiple versions of a code repository called branches, with the ability to track and undo changes in detail.
+- Install Git by [downloading](https://www.git-scm.com/downloads) from the website, or with a package manager like [Homebrew](https://brew.sh/).
+- [Configure Git to connect to GitHub with SSH](https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/connecting-to-github-with-ssh)
+- [Fork](https://docs.github.com/en/free-pro-team@latest/github/getting-started-with-github/fork-a-repo) this repo
+- Create a [branch](https://www.git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell) in your fork.
+- Commit your changes with a [properly-formatted Git commit message](https://chris.beams.io/posts/git-commit/).
+- Create a [pull request (PR)](https://docs.github.com/en/free-pro-team@latest/github/collaborating-with-issues-and-pull-requests/about-pull-requests) to incorporate your changes into the upstream project you forked.
 
 ## Python
 
