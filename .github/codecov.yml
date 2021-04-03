@@ -1,0 +1,26 @@
+codecov:
+  require_ci_to_pass: yes
+comment:
+  layout: "reach,diff,flags,files,footer"
+  behavior: default
+  require_changes: no
+coverage:
+  precision: 1
+  range: "70...100"
+  round: down
+  status:
+    patch:
+      default:
+        threshold: 1%
+        flags: [unit]
+    project:
+      default:
+        threshold: 1%
+        flags: [unit]
+parsers:
+  gcov:
+    branch_detection:
+      conditional: yes
+      loop: yes
+      macro: no
+      method: no
