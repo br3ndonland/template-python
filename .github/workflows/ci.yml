@@ -50,7 +50,7 @@ jobs:
       - name: Run unit tests
         run: pytest --cov-report=xml
       - name: Upload test coverage report to Codecov
-        uses: codecov/codecov-action@v1
+        uses: codecov/codecov-action@v2
         if: env.CODECOV_UPLOAD == 'true'
         with:
           fail_ci_if_error: true
