@@ -53,6 +53,16 @@ jobs:
           esac
       - name: Install dependencies
         run: poetry install --no-interaction
+      - name: Test virtualenv location
+        run: |
+          EXPECTED_VIRTUALENV_PATH=${{ github.workspace }}/.venv
+          INSTALLED_VIRTUALENV_PATH=$(poetry env info --path)
+          echo "The virtualenv should be at $EXPECTED_VIRTUALENV_PATH."
+          echo "Poetry is using a virtualenv at $INSTALLED_VIRTUALENV_PATH."
+          case "$INSTALLED_VIRTUALENV_PATH" in
+          "$EXPECTED_VIRTUALENV_PATH") echo "Correct Poetry virtualenv." ;;
+          *) echo "Incorrect Poetry virtualenv." && exit 1 ;;
+          esac
       - name: Run pre-commit hooks
         run: poetry run pre-commit run --all-files
       - name: Run unit tests
