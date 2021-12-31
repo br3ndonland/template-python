@@ -17,6 +17,13 @@ coverage:
       default:
         threshold: 1%
         flags: [unit]
+flag_management:
+  default_rules:
+    statuses:
+      - type: project
+      - target: auto
+      - include_changes: auto
+      - threshold: 1%
 parsers:
   gcov:
     branch_detection:
