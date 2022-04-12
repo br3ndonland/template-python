@@ -1,3 +1,11 @@
+[tool.coverage.report]
+fail_under = 100
+show_missing = true
+
+[tool.coverage.run]
+command_line = "-m pytest"
+source = ["templatepython", "tests"]
+
 [tool.isort]
 profile = "black"
 src_paths = ["templatepython", "tests"]
@@ -24,13 +32,14 @@ include = ["templatepython/py.typed"]
 python = "^3.9"
 
 [tool.poetry.dev-dependencies]
-black = {version = "*", allow-prereleases = true}
-flake8 = "*"
+black = ">=22.3.0"
+coverage = {version = "^6", extras = ["toml"]}
+flake8 = ">=4"
 isort = "^5.6"
 mkdocs-material = "^8"
 mypy = ">0.900,<1"
 pre-commit = "^2.8"
-pytest = "^6.2"
+pytest = "^7"
 pytest-cov = "^3"
 pytest-mock = "^3.3"
 
