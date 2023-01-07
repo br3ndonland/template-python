@@ -15,7 +15,6 @@ jobs:
       matrix:
         python-version: ["3.9", "3.10"]
     env:
-      CODECOV_UPLOAD: false
       PIPX_VERSION: "1.1.0"
       POETRY_VERSION: "1.1.11"
       PYPI_PUBLISH: false
@@ -66,13 +65,9 @@ jobs:
       - name: Run pre-commit hooks
         run: poetry run pre-commit run --all-files
       - name: Run unit tests
-        run: poetry run pytest --cov-report=xml
-      - name: Upload test coverage report to Codecov
-        uses: codecov/codecov-action@v3
-        if: env.CODECOV_UPLOAD == 'true' && matrix.python-version == '3.10'
-        with:
-          fail_ci_if_error: true
-          flags: unit
+        run: poetry run coverage run
+      - name: Enforce test coverage
+        run: poetry run coverage report
       - name: Build Python package with latest stable Python version and publish to PyPI
         if: >
           env.PYPI_PUBLISH == 'true' &&
