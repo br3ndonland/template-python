@@ -24,7 +24,7 @@ Another common approach, especially for Python, is to use [cookiecutter](https:/
 # Replace instances of template-python with new repo name
 # In the command below, use your repo name instead of 'repo-name'
 ❯ git grep -l 'template-python' | xargs sed -i '' 's|template-python|repo-name|g'
-❯ git grep -l 'templatepython' | xargs sed -i '' 's|templatepython|repo-name|g'
+❯ git grep -l 'template_python' | xargs sed -i '' 's|template_python|repo-name|g'
 # Install virtual environment with poetry: https://python-poetry.org/docs/
 ❯ poetry install
 ❯ poetry shell

@@ -1,6 +1,6 @@
 import pytest
 
-from templatepython.examples import palindrome
+from template_python.examples import palindrome
 
 
 @pytest.mark.parametrize(

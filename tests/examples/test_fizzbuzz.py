@@ -2,7 +2,7 @@ from typing import Union
 
 import pytest
 
-from templatepython.examples import fizzbuzz
+from template_python.examples import fizzbuzz
 
 
 @pytest.mark.parametrize(
