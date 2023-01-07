@@ -15,7 +15,7 @@ The `template-python` repo name can be replaced with a one-line terminal command
 
 Another common approach, especially for Python, is to use [cookiecutter](https://github.com/cookiecutter/cookiecutter). In a cookiecutter repo, the developer adds template variables throughout, like `{{cookiecutter.repo_name}}`. When a user runs `cookiecutter` using the template repository, the template variables are replaced with the information the user provides. This repo is simple enough that I haven't needed to add cookiecutter yet.
 
-[Copier](https://copier.readthedocs.io/en/stable/) is similar to cookiecutter, with some additional benefits. [Copier is being refactored](https://www.pythonpodcast.com/copier-project-scaffolding-episode-297/) in preparation for [version 6](https://github.com/copier-org/copier/projects/1), and I may consider updating this repo for Copier 6.
+[Copier](https://copier.readthedocs.io/en/stable/) and [PyScaffold](https://pyscaffold.org/en/stable/) are similar to cookiecutter, with some additional benefits. I may consider updating this repo for Copier or PyScaffold.
 
 ## Quickstart
 
