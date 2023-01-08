@@ -17,7 +17,6 @@ jobs:
       HATCH_ENV: "ci"
       HATCH_VERSION: "1.6.3"
       PIPX_VERSION: "1.1.0"
-      PYPI_PUBLISH: false
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-python@v3
