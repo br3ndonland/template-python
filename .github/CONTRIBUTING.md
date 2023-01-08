@@ -196,5 +196,5 @@ CSpell is not currently used with pre-commit in this project because behavior of
       ```
     - Omit the leading `v` (use `1.0.0` instead of `v1.0.0`)
     - Example: `git tag -a -s 1.0.0`
-  - Push the tag. GitHub Actions will build and publish the Python package and update the changelog.
-  - Squash and merge the changelog PR, removing any [`Co-authored-by` trailers](https://docs.github.com/en/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-with-multiple-authors) before merging.
+  - Push the tag. GitHub Actions will build and publish the Python package.
+- Consider [keeping a changelog](https://keepachangelog.com/en/1.0.0/).
