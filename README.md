@@ -19,19 +19,20 @@ Another common approach, especially for Python, is to use [cookiecutter](https:/
 
 ## Quickstart
 
+[Install Hatch](https://hatch.pypa.io/latest/install/), rename the project, then install the project:
+
 ```sh
 ❯ cd path/to/repo
 # Replace instances of template-python with new repo name
 # In the command below, use your repo name instead of 'repo-name'
 ❯ git grep -l 'template-python' | xargs sed -i '' 's|template-python|repo-name|g'
 ❯ git grep -l 'template_python' | xargs sed -i '' 's|template_python|repo-name|g'
-# Install virtual environment with poetry: https://python-poetry.org/docs/
-❯ poetry install
-❯ poetry shell
+# Install project
+❯ hatch env create
 # Install pre-commit hooks
-.venv ❯ pre-commit install
+❯ hatch run pre-commit install
 # Try running the tests
-.venv ❯ pytest
+❯ hatch run coverage run
 ```
 
 ## Further information

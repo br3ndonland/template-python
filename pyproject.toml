@@ -1,3 +1,35 @@
+[build-system]
+build-backend = "hatchling.build"
+requires = ["hatchling"]
+
+[project]
+authors = [{email = "you@example.com", name = "Your Name"}]
+dependencies = []
+description = "Your project description here."
+dynamic = ["version"]
+license = "MIT"
+name = "template-python"
+readme = "README.md"
+requires-python = ">=3.8.1,<4"
+
+[project.optional-dependencies]
+checks = [
+  "black>=22,<23",
+  "flake8>=6,<7",
+  "isort>=5,<6",
+  "mypy==0.991",
+  "pre-commit>=2,<3",
+]
+docs = [
+  "mkdocs-material>=8,<9",
+]
+tests = [
+  "coverage[toml]>=6,<7",
+  "httpx>=0.23,<24",
+  "pytest>=7,<8",
+  "pytest-mock>=3,<4",
+]
+
 [tool.coverage.report]
 exclude_lines = ["if TYPE_CHECKING:", "pragma: no cover"]
 fail_under = 72
@@ -6,6 +38,34 @@ show_missing = true
 [tool.coverage.run]
 command_line = "-m pytest"
 source = ["template_python", "tests"]
+
+[tool.hatch.build.targets.sdist]
+include = ["/template_python"]
+
+[tool.hatch.envs.ci]
+dev-mode = false
+features = [
+  "checks",
+  "tests",
+]
+path = ".venv"
+
+[tool.hatch.envs.default]
+dev-mode = true
+features = [
+  "checks",
+  "docs",
+  "tests",
+]
+path = ".venv"
+
+[tool.hatch.envs.production]
+dev-mode = false
+features = []
+path = ".venv"
+
+[tool.hatch.version]
+path = "template_python/__init__.py"
 
 [tool.isort]
 profile = "black"
@@ -19,36 +79,7 @@ files = ["**/*.py"]
 namespace_packages = true
 show_error_codes = true
 
-[tool.poetry]
-name = "template-python"
-version = "0.1.0"
-description = "Template repository for Python projects"
-authors = ["Brendon Smith <br3ndonland@protonmail.com>"]
-license = "MIT"
-homepage = "https://github.com/br3ndonland/template-python"
-readme = "README.md"
-include = ["template_python/py.typed"]
-
-[tool.poetry.dependencies]
-python = "^3.9"
-
-[tool.poetry.dev-dependencies]
-black = ">=22.3.0"
-coverage = {version = "^6", extras = ["toml"]}
-flake8 = ">=4"
-isort = "^5.6"
-mkdocs-material = "^8"
-mypy = ">0.900,<1"
-pre-commit = "^2.8"
-pytest = "^7"
-pytest-cov = "^3"
-pytest-mock = "^3.3"
-
 [tool.pytest.ini_options]
 addopts = "-q"
 minversion = "6.0"
 testpaths = ["tests"]
-
-[build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
