@@ -72,12 +72,9 @@ profile = "black"
 src_paths = ["template_python", "tests"]
 
 [tool.mypy]
-disallow_incomplete_defs = true
-disallow_untyped_defs = true
-explicit_package_bases = true
 files = ["**/*.py"]
-namespace_packages = true
 show_error_codes = true
+strict = true
 
 [tool.pytest.ini_options]
 addopts = "-q"
