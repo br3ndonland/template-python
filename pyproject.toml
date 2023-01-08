@@ -4,6 +4,13 @@ requires = ["hatchling"]
 
 [project]
 authors = [{email = "you@example.com", name = "Your Name"}]
+classifiers = [
+  "Natural Language :: English",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Typing :: Typed",
+]
 dependencies = []
 description = "Your project description here."
 dynamic = ["version"]
