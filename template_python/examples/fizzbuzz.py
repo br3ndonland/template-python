@@ -8,7 +8,6 @@ Modulo (%, remainder)
 Strict equality (==)
 Addition assignment (+=)
 """
-from typing import List, Union
 
 
 def fizzbuzz_print() -> None:
@@ -27,7 +26,7 @@ def fizzbuzz_print() -> None:
         print(out or i)
 
 
-def fizzbuzz_list() -> List[Union[int, str]]:
+def fizzbuzz_list() -> list[int | str]:
     """Create a list 1-100
     ---
     - Multiples of 3 and 5: FizzBuzz
@@ -35,7 +34,7 @@ def fizzbuzz_list() -> List[Union[int, str]]:
     - Multiples of 5: Buzz
     - Else: integer
     """
-    out: List[Union[int, str]] = []
+    out: list[int | str] = []
     for i in range(100):
         if i % 3 == 0 and i % 5 == 0:
             out.insert(i, "FizzBuzz")

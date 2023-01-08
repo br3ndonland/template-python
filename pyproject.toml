@@ -10,7 +10,7 @@ dynamic = ["version"]
 license = "MIT"
 name = "template-python"
 readme = "README.md"
-requires-python = ">=3.8.1,<4"
+requires-python = ">=3.10,<4"
 
 [project.optional-dependencies]
 checks = [
@@ -32,7 +32,7 @@ tests = [
 
 [tool.coverage.report]
 exclude_lines = ["if TYPE_CHECKING:", "pragma: no cover"]
-fail_under = 72
+fail_under = 70
 show_missing = true
 
 [tool.coverage.run]

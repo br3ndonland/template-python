@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 """Fibonacci numbers"""
-from typing import List
 
 
 def user_input() -> str:
@@ -26,7 +25,7 @@ def f(n: int) -> int:
     return a
 
 
-def f_list(n: int) -> List[int]:
+def f_list(n: int) -> list[int]:
     """Return a list of the first n Fibonacci numbers."""
     out = []
     a, b = 0, 1
