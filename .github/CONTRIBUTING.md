@@ -197,4 +197,6 @@ CSpell is not currently used with pre-commit in this project because behavior of
     - Omit the leading `v` (use `1.0.0` instead of `v1.0.0`)
     - Example: `git tag -a -s 1.0.0`
   - Push the tag. GitHub Actions will build and publish the Python package.
-- Consider [keeping a changelog](https://keepachangelog.com/en/1.0.0/).
+- Consider [keeping a changelog](https://keepachangelog.com/en/1.0.0/). There are many tools and approaches for this. Most of them work like this:
+  1. Accumulate "fragments" as the project is developed. These could be text files in a directory under version control, or could also be Git commit/PR/tag messages. Fragments should contain human-readable summaries of code changes.
+  2. Collect the fragments and combine them into a text file like CHANGELOG.md.
