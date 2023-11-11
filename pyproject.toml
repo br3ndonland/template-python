@@ -32,7 +32,7 @@ docs = [
 ]
 tests = [
   "coverage[toml]>=7,<8",
-  "httpx>=0.23,<24",
+  "httpx>=0.23,<1",
   "pytest>=7,<8",
   "pytest-mock>=3,<4",
 ]
