@@ -28,7 +28,7 @@ checks = [
   "pre-commit>=3,<4",
 ]
 docs = [
-  "mkdocs-material>=8,<9",
+  "mkdocs-material>=9,<10",
 ]
 tests = [
   "coverage[toml]>=7,<8",
