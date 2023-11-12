@@ -2,7 +2,6 @@
 
 [![Imports: isort](https://img.shields.io/badge/%20imports-isort-%231674b1?style=flat&labelColor=ef8336)](https://pycqa.github.io/isort/)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://black.readthedocs.io/en/stable/)
-[![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
 [![ci](https://github.com/br3ndonland/template-python/workflows/ci/badge.svg)](https://github.com/br3ndonland/template-python/actions/workflows/ci.yml)
 
 Brendon Smith ([br3ndonland](https://github.com/br3ndonland))
@@ -27,10 +26,6 @@ Another common approach, especially for Python, is to use [cookiecutter](https:/
 # In the command below, use your repo name instead of 'repo-name'
 ❯ git grep -l 'template-python' | xargs sed -i '' 's|template-python|repo-name|g'
 ❯ git grep -l 'template_python' | xargs sed -i '' 's|template_python|repo-name|g'
-# Install project
-❯ hatch env create
-# Install pre-commit hooks
-❯ hatch run pre-commit install
 # Try running the tests
 ❯ hatch run coverage run
 ```

@@ -8,9 +8,9 @@
   - [Hatch](#hatch)
   - [Testing with pytest](#testing-with-pytest)
 - [Code quality](#code-quality)
+  - [Running code quality checks](#running-code-quality-checks)
   - [Code style](#code-style)
   - [Static type checking](#static-type-checking)
-  - [Pre-commit](#pre-commit)
   - [Spell check](#spell-check)
 - [GitHub Actions workflows](#github-actions-workflows)
 - [Maintainers](#maintainers)
@@ -85,6 +85,13 @@ export HATCH_ENV_TYPE_VIRTUAL_PATH=.venv  # install virtualenvs into .venv
 
 ## Code quality
 
+### Running code quality checks
+
+Code quality checks can be run using the Hatch scripts in _pyproject.toml_.
+
+- Check: `hatch run check`
+- Format: `hatch run format`
+
 ### Code style
 
 - **Python code is formatted with [Black](https://black.readthedocs.io/en/stable/)**. Configuration for Black is stored in _pyproject.toml_.
@@ -107,59 +114,9 @@ export HATCH_ENV_TYPE_VIRTUAL_PATH=.venv  # install virtualenvs into .venv
 - [Mypy](https://mypy.readthedocs.io/en/stable/) is used for type-checking. [Mypy configuration](https://mypy.readthedocs.io/en/stable/config_file.html) is included in _pyproject.toml_.
 - Mypy strict mode is enabled. Strict includes `--no-explicit-reexport` (`implicit_reexport = false`), which means that objects imported into a module will not be re-exported for import into other modules. Imports can be made into explicit exports with the syntax `from module import x as x` (i.e., changing from `import logging` to `import logging as logging`), or by including imports in `__all__`. This explicit import syntax can be confusing. Another option is to apply mypy overrides to any modules that need to leverage implicit exports.
 
-### Pre-commit
-
-[Pre-commit](https://pre-commit.com/) runs [Git hooks](https://www.git-scm.com/book/en/v2/Customizing-Git-Git-Hooks). Configuration is stored in _.pre-commit-config.yaml_. It can run locally before each commit (hence "pre-commit"), or on different Git events like `pre-push`. Pre-commit is installed in the Python virtual environment. To use:
-
-```sh
-~
-❯ cd path/to/repo
-
-# install hooks that run before each commit
-path/to/repo
-❯ hatch run pre-commit install
-
-# and/or install hooks that run before each push
-path/to/repo
-❯ hatch run pre-commit install --hook-type pre-push
-```
-
 ### Spell check
 
-Spell check is performed with [CSpell](https://cspell.org/).
-
-In GitHub Actions, CSpell runs using [cspell-action](https://github.com/streetsidesoftware/cspell-action).
-
-To run spell check locally, consider installing [their VSCode extension](https://github.com/streetsidesoftware/vscode-spell-checker) or running from the command line.
-
-CSpell can be run with `pnpm` if `pnpm` is installed:
-
-```sh
-pnpm -s dlx cspell --dot --gitignore "**/*.md"
-```
-
-or with `npx` if `npm` is installed:
-
-```sh
-npx -s -y cspell --dot --gitignore "**/*.md"
-```
-
-CSpell also offers a pre-commit hook through their [cspell-cli](https://github.com/streetsidesoftware/cspell-cli) repo. A `.pre-commit-config.yaml` configuration could look like this:
-
-```yml
-repos:
-  - repo: https://github.com/streetsidesoftware/cspell-cli
-    rev: v6.16.0
-    hooks:
-      - id: cspell
-        files: "^.*.md$"
-        args: ["--dot", "--gitignore", "**/*.md"]
-```
-
-CSpell is not currently used with pre-commit in this project because behavior of the pre-commit hook is inconsistent.
-
-- [CSpell matches files with globs](https://cspell.org/docs/globs/), but [pre-commit uses Python regexes](https://pre-commit.com/#regular-expressions). Two separate file patterns have to be specified (a regex for pre-commit and a glob for CSpell), which is awkward and error-prone.
-- When running with pre-commit, CSpell seems to output each error multiple times.
+Spell check is performed with [CSpell](https://cspell.org/). The CSpell command is included in the Hatch script for code quality checks (`hatch run check`).
 
 ## GitHub Actions workflows
 
