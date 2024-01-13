@@ -48,6 +48,9 @@ source = ["template_python", "tests"]
 [tool.hatch.build.targets.sdist]
 include = ["/template_python"]
 
+[tool.hatch.build.targets.wheel]
+packages = ["template_python"]
+
 [tool.hatch.envs.ci]
 dev-mode = false
 features = [
