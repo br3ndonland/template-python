@@ -3,7 +3,7 @@ build-backend = "hatchling.build"
 requires = ["hatchling"]
 
 [project]
-authors = [{email = "you@example.com", name = "Your Name"}]
+authors = [{ email = "you@example.com", name = "Your Name" }]
 classifiers = [
   "Natural Language :: English",
   "Programming Language :: Python :: 3",
@@ -21,10 +21,8 @@ requires-python = ">=3.10,<4"
 
 [project.optional-dependencies]
 checks = [
-  "black>=23,<24",
-  "flake8>=6,<7",
-  "isort>=5,<6",
   "mypy==1.8.0",
+  "ruff>=0.1,<0.2",
 ]
 docs = [
   "mkdocs-material>=9,<10",
@@ -70,16 +68,15 @@ path = ".venv"
 
 [tool.hatch.envs.default.scripts]
 check = [
-  "black --check --diff .",
-  "isort --check --diff .",
-  "flake8 --extend-exclude=.venv,bin,build,cache,dist,lib --max-line-length=88",
+  "ruff check",
+  "ruff format --check",
   "mypy",
   "npx -s -y prettier@'^2' . --check",
   "npx -s -y cspell --dot --gitignore *.md **/*.md",
 ]
 format = [
-  "black .",
-  "isort .",
+  "ruff check --fix",
+  "ruff format",
   "npx -s -y prettier@'^2' . --write",
 ]
 
@@ -91,10 +88,6 @@ path = ".venv"
 [tool.hatch.version]
 path = "template_python/__init__.py"
 
-[tool.isort]
-profile = "black"
-src_paths = ["template_python", "tests"]
-
 [tool.mypy]
 files = ["**/*.py"]
 show_error_codes = true
@@ -104,3 +97,13 @@ strict = true
 addopts = "-q"
 minversion = "6.0"
 testpaths = ["tests"]
+
+[tool.ruff]
+extend-select = ["I"]
+src = ["template_python", "tests"]
+
+[tool.ruff.format]
+docstring-code-format = true
+
+[tool.ruff.lint.isort]
+known-first-party = ["template_python", "tests"]
