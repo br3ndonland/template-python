@@ -18,7 +18,7 @@ jobs:
       HATCH_VERSION: "1.9.1"
       PIPX_VERSION: "1.4.1"
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: actions/setup-python@v4
         with:
           python-version: ${{ matrix.python-version }}
