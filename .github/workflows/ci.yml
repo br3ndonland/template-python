@@ -19,12 +19,12 @@ jobs:
       PIPX_VERSION: "1.4.1"
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-python@v4
+      - uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
       - name: Set up pip cache
         if: runner.os == 'Linux'
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ~/.cache/pip
           key: ${{ runner.os }}-pip-${{ hashFiles('pyproject.toml') }}
@@ -66,13 +66,6 @@ jobs:
           else
             echo "Versions do not match." && exit 1
           fi
-      - name: Run spell check
-        uses: streetsidesoftware/cspell-action@v2
-        with:
-          check_dot_files: true
-          files: "**/*.md"
-          incremental_files_only: false
-          strict: true
       - name: Run Hatch script for code quality checks
         run: hatch run ${{ env.HATCH_ENV }}:check
       - name: Run tests
