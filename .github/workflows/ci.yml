@@ -15,7 +15,7 @@ jobs:
         python-version: ["3.10", "3.11"]
     env:
       HATCH_ENV: "ci"
-      HATCH_VERSION: "1.9.1"
+      HATCH_VERSION: "1.9.4"
       PIPX_VERSION: "1.5.0"
     steps:
       - uses: actions/checkout@v4
