@@ -22,7 +22,7 @@ requires-python = ">=3.10,<4"
 [project.optional-dependencies]
 checks = [
   "mypy==1.9.0",
-  "ruff>=0.1,<0.2",
+  "ruff>=0.3,<0.4",
 ]
 docs = [
   "mkdocs-material>=9,<10",
@@ -99,11 +99,13 @@ minversion = "6.0"
 testpaths = ["tests"]
 
 [tool.ruff]
-extend-select = ["I"]
 src = ["template_python", "tests"]
 
 [tool.ruff.format]
 docstring-code-format = true
+
+[tool.ruff.lint]
+extend-select = ["I"]
 
 [tool.ruff.lint.isort]
 known-first-party = ["template_python", "tests"]
