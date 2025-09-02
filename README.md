@@ -29,6 +29,12 @@ Another common approach, especially for Python, is to use [cookiecutter](https:/
 ❯ hatch run coverage run
 ```
 
-## Further information
+## Documentation
+
+Documentation is built with [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/).
+
+The [Vercel project configuration](https://vercel.com/docs/project-configuration) in [`vercel.json`](vercel.json) can be used to deploy the docs to [Vercel](https://vercel.com/docs).
+
+## Contributing
 
 See [CONTRIBUTING.md](.github/CONTRIBUTING.md).
