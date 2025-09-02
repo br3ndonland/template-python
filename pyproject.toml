@@ -92,7 +92,6 @@ path = "template_python/__init__.py"
 
 [tool.mypy]
 files = ["**/*.py"]
-show_error_codes = true
 strict = true
 
 [tool.pytest.ini_options]
