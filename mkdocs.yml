@@ -3,6 +3,10 @@ markdown_extensions:
   - admonition
   - pymdownx.details
   - pymdownx.inlinehilite
+  - pymdownx.magiclink:
+      user: br3ndonland
+      repo: template-python
+      repo_url_shorthand: true
   - pymdownx.snippets
   - pymdownx.superfences
   - pymdownx.tasklist:
