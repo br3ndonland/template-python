@@ -24,6 +24,7 @@ site_url: ""
 theme:
   favicon: assets/images/favicon.png
   features:
+    - content.code.annotate
     - content.code.copy
     - header.autohide
     - navigation.instant
