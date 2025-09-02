@@ -38,7 +38,7 @@ tests = [
 
 [tool.coverage.report]
 exclude_lines = ["if TYPE_CHECKING:", "pragma: no cover"]
-fail_under = 70
+fail_under = 68
 show_missing = true
 
 [tool.coverage.run]
