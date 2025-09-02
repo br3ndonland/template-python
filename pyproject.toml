@@ -107,7 +107,7 @@ src = ["template_python", "tests"]
 docstring-code-format = true
 
 [tool.ruff.lint]
-extend-select = ["I"]
+extend-select = ["I", "UP"]
 
 [tool.ruff.lint.isort]
 known-first-party = ["template_python", "tests"]
