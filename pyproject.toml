@@ -91,6 +91,7 @@ path = ".venv"
 path = "template_python/__init__.py"
 
 [tool.mypy]
+exclude_gitignore = true
 files = ["**/*.py"]
 strict = true
 
