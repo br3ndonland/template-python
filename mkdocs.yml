@@ -1,6 +1,7 @@
 edit_uri: ""
 markdown_extensions:
   - admonition
+  - pymdownx.details
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - pymdownx.superfences
