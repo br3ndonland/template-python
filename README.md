@@ -14,13 +14,18 @@ The template repo name can be replaced as shown in the [quickstart](#quickstart)
 [Install Hatch](https://hatch.pypa.io/latest/install/), rename the project, then install the project:
 
 ```sh
-❯ cd path/to/repo
-# Replace instances of template-python with new repo name
-# In the command below, use your repo name instead of 'repo-name'
-❯ git grep -l 'template-python' | xargs sed -i '' 's|template-python|repo-name|g'
-❯ git grep -l 'template_python' | xargs sed -i '' 's|template_python|repo-name|g'
-# Try running the tests
-❯ hatch run coverage run
+# set your names
+repo_name="your-repo-name"
+your_name="Your Name"
+
+# update repo for new names
+git mv "template_python" "${repo_name//-/_}"
+git grep -l "Brendon Smith" | xargs sed -i "s|Brendon Smith|$your_name|g"
+git grep -l "template_python" | xargs sed -i "s|template_python|${repo_name//-/_}|g"
+git grep -l "template-python" | xargs sed -i "s|template-python|$repo_name|g"
+
+# run tests to verify
+hatch run coverage run
 ```
 
 ## Documentation
