@@ -57,7 +57,6 @@ features = [
   "checks",
   "tests",
 ]
-path = ".venv"
 
 [tool.hatch.envs.default]
 dev-mode = true
@@ -66,7 +65,6 @@ features = [
   "docs",
   "tests",
 ]
-path = ".venv"
 
 [tool.hatch.envs.default.scripts]
 check = [
@@ -85,7 +83,6 @@ format = [
 [tool.hatch.envs.production]
 dev-mode = false
 features = []
-path = ".venv"
 
 [tool.hatch.version]
 path = "template_python/__init__.py"
