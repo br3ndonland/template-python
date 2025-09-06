@@ -1,13 +1,13 @@
-# Python template repository
+# template-python
 
 [![ci](https://github.com/br3ndonland/template-python/workflows/ci/badge.svg)](https://github.com/br3ndonland/template-python/actions/workflows/ci.yml)
 [![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
 
 ## Description
 
-**Welcome!** This is a template repository for Python projects, engineered for use as a [GitHub template repository](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template). To use the template, click on "Use this template" or browse to [template-python/generate](https://github.com/br3ndonland/template-python/generate). GitHub will create a new repository without the commit history from this one.
+**Welcome!** This is a template repository for Python projects, engineered for use as a [GitHub template repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template). To use the template, click on "[Use this template](https://github.com/new?template_name=template-python&template_owner=br3ndonland)" or use the [GitHub CLI](https://cli.github.com/manual/) (` gh repo create your-repo-name --public --template br3ndonland/template-python`).
 
-The `template-python` repo name can be replaced with a one-line terminal command: `git grep -l 'template-python' | xargs sed -i '' 's/template-python/repo-name/g'` (replace `repo-name` with the name of the repository you generate). There may also be a few edits to the _pyproject.toml_ needed. See the [quickstart](#quickstart) section for more.
+The template repo name can be replaced as shown in the [quickstart](#quickstart) section.
 
 ## Quickstart
 
