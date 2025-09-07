@@ -70,9 +70,9 @@ jobs:
       - name: Run Hatch script for code quality checks
         run: hatch run ${{ env.HATCH_ENV }}:check
       - name: Run tests
-        run: hatch run coverage run
+        run: hatch run ${{ env.HATCH_ENV }}:coverage run
       - name: Enforce test coverage
-        run: hatch run coverage report
+        run: hatch run ${{ env.HATCH_ENV }}:coverage report
       - name: Build Python package
         run: hatch build
       - name: Publish Python package to PyPI
