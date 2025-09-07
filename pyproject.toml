@@ -18,7 +18,7 @@ description = "Your project description here."
 dynamic = ["version"]
 license = "MIT"
 name = "template-python"
-readme = "README.md"
+readme = "docs/index.md"
 requires-python = ">=3.10,<4"
 
 [project.optional-dependencies]
