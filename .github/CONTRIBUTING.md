@@ -1,20 +1,5 @@
 # Guidelines for contributing
 
-## Table of Contents <!-- omit in toc -->
-
-- [Summary](#summary)
-- [Git](#git)
-- [Python](#python)
-  - [Hatch](#hatch)
-  - [Testing with pytest](#testing-with-pytest)
-- [Code quality](#code-quality)
-  - [Running code quality checks](#running-code-quality-checks)
-  - [Code style](#code-style)
-  - [Static type checking](#static-type-checking)
-  - [Spell check](#spell-check)
-- [GitHub Actions workflows](#github-actions-workflows)
-- [Maintainers](#maintainers)
-
 ## Summary
 
 **PRs welcome!**
