@@ -17,9 +17,11 @@ The template repo name can be replaced as shown in the [quickstart](#quickstart)
 # set your names
 repo_name="your-repo-name"
 your_name="Your Name"
+your_user="YourGitHubUsername"
 
 # update repo for new names
 git mv "template_python" "${repo_name//-/_}"
+git grep -l "br3ndonland" | xargs sed -i "s|br3ndonland|$your_user|g"
 git grep -l "Brendon Smith" | xargs sed -i "s|Brendon Smith|$your_name|g"
 git grep -l "template_python" | xargs sed -i "s|template_python|${repo_name//-/_}|g"
 git grep -l "template-python" | xargs sed -i "s|template-python|$repo_name|g"
