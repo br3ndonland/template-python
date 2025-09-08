@@ -23,7 +23,7 @@ Repository = "https://github.com/br3ndonland/template-python"
 
 [project.optional-dependencies]
 checks = [
-  "mypy==1.16.1",
+  "basedpyright>=1,<2",
   "ruff>=0.12,<0.13",
 ]
 docs = [
@@ -40,9 +40,12 @@ tests = [
 requires = ["hatchling>=1.26.3,<2"]
 build-backend = "hatchling.build"
 
+[tool.basedpyright]
+pythonVersion = "3.10"
+
 [tool.coverage.report]
 exclude_lines = ["if TYPE_CHECKING:", "pragma: no cover"]
-fail_under = 68
+fail_under = 70
 show_missing = true
 
 [tool.coverage.run]
@@ -78,7 +81,7 @@ features = [
 check = [
   "ruff check",
   "ruff format --check",
-  "mypy",
+  "basedpyright",
   "npx -s -y prettier@'^3' . --check",
   "npx -s -y cspell --dot --gitignore *.md **/*.md",
 ]
@@ -94,11 +97,6 @@ features = []
 
 [tool.hatch.version]
 path = "src/template_python/__init__.py"
-
-[tool.mypy]
-exclude_gitignore = true
-files = ["**/*.py"]
-strict = true
 
 [tool.pytest.ini_options]
 addopts = "-q"

@@ -27,7 +27,7 @@ def f(n: int) -> int:
 
 def f_list(n: int) -> list[int]:
     """Return a list of the first n Fibonacci numbers."""
-    out = []
+    out: list[int] = []
     a, b = 0, 1
     for _ in range(n):
         a, b = b, a + b

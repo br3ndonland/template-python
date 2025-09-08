@@ -1,6 +1,7 @@
 {
   "recommendations": [
     "charliermarsh.ruff",
+    "detachhead.basedpyright",
     "esbenp.prettier-vscode",
     "github.vscode-github-actions",
     "ms-python.python",
@@ -8,5 +9,8 @@
     "tombi-toml.tombi",
     "yzhang.markdown-all-in-one"
   ],
-  "unwantedRecommendations": []
+  "unwantedRecommendations": [
+    "ms-python.mypy-type-checker",
+    "ms-python.vscode-pylance"
+  ]
 }

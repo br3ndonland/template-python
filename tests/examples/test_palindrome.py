@@ -4,19 +4,18 @@ from template_python.examples import palindrome
 
 
 @pytest.mark.parametrize(
-    "input_string,output_boolean",
-    [
-        ("racecar", True),
-        ("A man, A Plan, A Canal, Panama", True),
-        ("Foo bar", False),
-        ("[]", False),
-    ],
+    ("input_string", "is_a_palindrome"),
+    (("racecar", True), ("A man, A Plan, A Canal, Panama", True), ("Foo bar", False)),
 )
-def test_palindrome(input_string: str, output_boolean: bool) -> None:
-    assert palindrome.prep_input(input_string) is output_boolean
+def test_palindrome(input_string: str, is_a_palindrome: bool) -> None:
+    if is_a_palindrome:
+        expected_result = f"The input {input_string} is a palindrome."
+    else:
+        expected_result = f"The input {input_string} is not a palindrome."
+    result = palindrome.process_user_input(input_string)
+    assert result == expected_result
 
 
 def test_palindrome_incorrect_input_type() -> None:
     with pytest.raises(AttributeError):
-        assert palindrome.prep_input([]) is False  # type: ignore
-        raise
+        _ = palindrome.process_user_input([])  # pyright: ignore[reportArgumentType]
