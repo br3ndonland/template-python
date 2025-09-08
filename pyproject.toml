@@ -47,13 +47,17 @@ show_missing = true
 
 [tool.coverage.run]
 command_line = "-m pytest"
-source = ["template_python", "tests"]
+source_pkgs = ["template_python", "tests"]
+
+[tool.coverage.paths]
+template_python = ["src/template_python"]
+tests = ["tests"]
 
 [tool.hatch.build.targets.sdist]
-include = ["/template_python"]
+include = ["src", "tests"]
 
 [tool.hatch.build.targets.wheel]
-packages = ["template_python"]
+packages = ["src/template_python"]
 
 [tool.hatch.envs.ci]
 dev-mode = false
@@ -89,7 +93,7 @@ dev-mode = false
 features = []
 
 [tool.hatch.version]
-path = "template_python/__init__.py"
+path = "src/template_python/__init__.py"
 
 [tool.mypy]
 exclude_gitignore = true
@@ -102,7 +106,7 @@ minversion = "6.0"
 testpaths = ["tests"]
 
 [tool.ruff]
-src = ["template_python", "tests"]
+src = ["src", "tests"]
 
 [tool.ruff.format]
 docstring-code-format = true
@@ -111,4 +115,4 @@ docstring-code-format = true
 extend-select = ["I", "UP"]
 
 [tool.ruff.lint.isort]
-known-first-party = ["template_python", "tests"]
+known-first-party = ["src", "tests"]
