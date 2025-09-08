@@ -17,6 +17,10 @@ classifiers = [
 dependencies = []
 dynamic = ["version"]
 
+[project.urls]
+Homepage = "https://github.com/br3ndonland/template-python"
+Repository = "https://github.com/br3ndonland/template-python"
+
 [project.optional-dependencies]
 checks = [
   "mypy==1.16.1",
