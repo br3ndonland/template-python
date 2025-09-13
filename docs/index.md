@@ -5,7 +5,7 @@
 
 ## Description
 
-**Welcome!** This is a template repository for Python projects, engineered for use as a [GitHub template repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template). To use the template, click on "[Use this template](https://github.com/new?template_name=template-python&template_owner=br3ndonland)" or use the [GitHub CLI](https://cli.github.com/manual/) (` gh repo create your-repo-name --public --template br3ndonland/template-python`).
+**Welcome!** This is a template repository for Python projects, engineered for use as a [GitHub template repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template). To use the template, click on "[Use this template](https://github.com/new?template_name=template-python&template_owner=br3ndonland)" or use the [GitHub CLI](https://cli.github.com/manual/) (`gh repo create your-repo-name --public --template br3ndonland/template-python`).
 
 The template repo name can be replaced as shown in the [quickstart](#quickstart) section.
 
