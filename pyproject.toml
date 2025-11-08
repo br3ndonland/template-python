@@ -24,7 +24,7 @@ Repository = "https://github.com/br3ndonland/template-python"
 [project.optional-dependencies]
 checks = [
   "basedpyright>=1,<2",
-  "ruff>=0.12,<0.13",
+  "ruff>=0.14,<0.15",
 ]
 docs = [
   "mkdocs-material>=9,<10",
