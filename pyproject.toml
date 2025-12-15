@@ -21,7 +21,7 @@ dynamic = ["version"]
 Homepage = "https://github.com/br3ndonland/template-python"
 Repository = "https://github.com/br3ndonland/template-python"
 
-[project.optional-dependencies]
+[dependency-groups]
 checks = [
   "basedpyright>=1,<2",
   "ruff>=0.14,<0.15",
@@ -32,8 +32,8 @@ docs = [
 tests = [
   "coverage[toml]>=7,<8",
   "httpx>=0.23,<1",
-  "pytest>=8.1.1,<9",
   "pytest-mock>=3,<4",
+  "pytest>=8.1.1,<9",
 ]
 
 [build-system]
@@ -65,14 +65,14 @@ packages = ["src/template_python"]
 [tool.hatch.envs.ci]
 builder = true
 dev-mode = false
-features = [
+dependency-groups = [
   "checks",
   "tests",
 ]
 
 [tool.hatch.envs.default]
 dev-mode = true
-features = [
+dependency-groups = [
   "checks",
   "docs",
   "tests",
