@@ -63,6 +63,7 @@ include = ["src", "tests"]
 packages = ["src/template_python"]
 
 [tool.hatch.envs.ci]
+builder = true
 dev-mode = false
 features = [
   "checks",
