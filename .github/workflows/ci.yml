@@ -37,7 +37,7 @@ jobs:
       - name: Test Hatch version
         run: |
           hatch_version_installed=$(hatch --version)
-          HATCH_VERSION_INSTALLED=${hatch_version_installed##Hatch, version }.
+          HATCH_VERSION_INSTALLED=${hatch_version_installed##Hatch, version }
           echo "The HATCH_VERSION environment variable is set to $HATCH_VERSION."
           echo "The installed Hatch version is $HATCH_VERSION_INSTALLED."
           case $HATCH_VERSION_INSTALLED in
