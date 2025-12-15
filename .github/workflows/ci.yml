@@ -15,7 +15,6 @@ jobs:
         python-version: ["3.10", "3.11", "3.12", "3.13"]
     env:
       HATCH_ENV_TYPE_VIRTUAL_PATH: ".venv"
-      HATCH_ENV: "ci"
       HATCH_VERSION: "1.16.*"
       PIPX_VERSION: "1.8.0"
     steps:
@@ -69,11 +68,11 @@ jobs:
             echo "Versions do not match." && exit 1
           fi
       - name: Run Hatch script for code quality checks
-        run: hatch run ${{ env.HATCH_ENV }}:check
+        run: hatch run ci:check
       - name: Run tests
-        run: hatch run ${{ env.HATCH_ENV }}:coverage run
+        run: hatch run ci:coverage run
       - name: Enforce test coverage
-        run: hatch run ${{ env.HATCH_ENV }}:coverage report
+        run: hatch run ci:coverage report
       - name: Build Python package
         run: hatch build
       - name: Publish Python package to PyPI
