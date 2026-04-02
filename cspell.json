@@ -29,6 +29,8 @@
     "autoformatters",
     "autoformatting",
     "basedpyright",
+    "blockquote",
+    "blockquotes",
     "boto",
     "br3ndonland",
     "brendon",
@@ -99,6 +101,7 @@
     "vendorizes",
     "venv",
     "virtualenv",
-    "virtualenvs"
+    "virtualenvs",
+    "zensical"
   ]
 }

@@ -1,0 +1,70 @@
+# https://zensical.org/docs/setup/basics/
+[project]
+edit_uri = ""
+repo_name = "br3ndonland/template-python"
+repo_url = "https://github.com/br3ndonland/template-python"
+site_description = "Documentation for the template-python GitHub repo"
+site_dir = "public"
+site_name = "template-python docs"
+site_url = ""
+use_directory_urls = false
+
+[project.markdown_extensions.admonition]
+
+[project.markdown_extensions.pymdownx.details]
+
+[project.markdown_extensions.pymdownx.inlinehilite]
+
+[project.markdown_extensions.pymdownx.magiclink]
+user = "br3ndonland"
+repo = "template-python"
+repo_url_shorthand = true
+
+[project.markdown_extensions.pymdownx.snippets]
+
+[project.markdown_extensions.pymdownx.superfences]
+
+[project.markdown_extensions.pymdownx.tasklist]
+clickable_checkbox = false
+custom_checkbox = true
+
+[project.markdown_extensions.toc]
+permalink = true
+toc_depth = 3
+
+[project.theme]
+features = [
+  "announce.dismiss",  # https://zensical.org/docs/setup/header/#announcement-bar
+  "content.action.view",  # https://zensical.org/docs/setup/repository/#content-actions
+  "content.code.annotate",  # https://zensical.org/docs/authoring/code-blocks/#code-annotations
+  "content.code.copy",  # https://zensical.org/docs/authoring/code-blocks/#code-copy-button
+  "header.autohide",  # https://zensical.org/docs/setup/header/#automatic-hiding
+  "navigation.instant",  # https://zensical.org/docs/setup/navigation/#instant-navigation
+  "navigation.instant.prefetch",  # https://zensical.org/docs/setup/navigation/#instant-prefetching
+  "navigation.top",  # https://zensical.org/docs/setup/navigation/#back-to-top-button
+]
+font = false
+language = "en"
+variant = "modern"
+
+# https://zensical.org/docs/setup/logo-and-icons/
+[project.theme.icon]
+logo = "octicons/book-24"
+repo = "octicons/mark-github-16"
+
+# https://zensical.org/docs/setup/colors/
+[[project.theme.palette]]
+accent = "cyan"
+media = "(prefers-color-scheme: dark)"
+primary = "cyan"
+scheme = "slate"
+toggle.icon = "lucide/moon"
+toggle.name = "Switch to light mode"
+
+[[project.theme.palette]]
+accent = "cyan"
+media = "(prefers-color-scheme: light)"
+primary = "cyan"
+scheme = "default"
+toggle.icon = "lucide/sun"
+toggle.name = "Switch to dark mode"
