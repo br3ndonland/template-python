@@ -35,7 +35,6 @@ toc_depth = 3
 [project.theme]
 features = [
   "announce.dismiss",  # https://zensical.org/docs/setup/header/#announcement-bar
-  "content.action.view",  # https://zensical.org/docs/setup/repository/#content-actions
   "content.code.annotate",  # https://zensical.org/docs/authoring/code-blocks/#code-annotations
   "content.code.copy",  # https://zensical.org/docs/authoring/code-blocks/#code-copy-button
   "header.autohide",  # https://zensical.org/docs/setup/header/#automatic-hiding
