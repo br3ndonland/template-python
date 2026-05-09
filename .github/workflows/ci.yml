@@ -99,7 +99,7 @@ jobs:
         run: pipx install "hatch$HATCH_VERSION"
       - name: Build docs
         run: hatch run ${{ env.HATCH_ENV }}:zensical build --clean
-      - uses: actions/upload-pages-artifact@v4
+      - uses: actions/upload-pages-artifact@v5
         with:
           path: public
 
