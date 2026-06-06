@@ -13,7 +13,7 @@ permissions:
 env:
   HATCH_ENV_TYPE_VIRTUAL_PATH: ".venv"
   HATCH_VERSION: ">=1.16.3,<1.17"
-  PIPX_VERSION: ">=1.11,<1.12"
+  PIPX_VERSION: ">=1.14,<1.15"
 
 jobs:
   ci:
