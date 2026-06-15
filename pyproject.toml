@@ -17,11 +17,11 @@ classifiers = [
 dependencies = []
 dynamic = ["version"]
 
-[project.optional-dependencies]
-
 [project.urls]
 Homepage = "https://github.com/br3ndonland/template-python"
 Repository = "https://github.com/br3ndonland/template-python"
+
+[project.optional-dependencies]
 
 [dependency-groups]
 checks = [
@@ -33,7 +33,7 @@ docs = [
 ]
 tests = [
   "coverage[toml]>=7,<8",
-  "pytest>=8.1.1,<9",
+  "pytest>=9,<10",
 ]
 
 [build-system]
@@ -105,9 +105,9 @@ dependency-groups = []
 [tool.hatch.version]
 path = "src/template_python/__init__.py"
 
-[tool.pytest.ini_options]
-addopts = "-q"
-minversion = "6.0"
+[tool.pytest]
+addopts = ["-q"]
+minversion = "9.0"
 testpaths = ["tests"]
 
 [tool.ruff]
