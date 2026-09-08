@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """Palindromes"""
 
 import re
@@ -6,11 +5,8 @@ import re
 
 def user_input() -> str:
     """Accept a string from user input."""
-    try:
-        user_input_string = input("Please provide an input to test: ")
-        return process_user_input(user_input_string)
-    except Exception:
-        raise
+    user_input_string = input("Please provide an input to test: ")
+    return process_user_input(user_input_string)
 
 
 def process_user_input(string: str) -> str:

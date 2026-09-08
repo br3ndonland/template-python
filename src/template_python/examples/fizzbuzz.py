@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 FizzBuzz
 https://medium.freecodecamp.org/a-software-engineering-survival-guide-fe3eafb47166
