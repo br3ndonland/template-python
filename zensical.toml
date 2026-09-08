@@ -7,6 +7,7 @@ site_description = "Documentation for the template-python GitHub repo"
 site_dir = "public"
 site_name = "template-python docs"
 site_url = ""
+strict = true
 use_directory_urls = false
 
 [project.markdown_extensions.admonition]
